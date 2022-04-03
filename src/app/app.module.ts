@@ -2,10 +2,24 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
+import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
+import { ExperienciaLaboralComponent } from './componentes/experiencia-laboral/experiencia-laboral.component';
+import { EducacionComponent } from './componentes/educacion/educacion.component';
+import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
+import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
+import { BarraNavComponent } from './componentes/barra-nav/barra-nav.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EncabezadoComponent,
+    AcercaDeComponent,
+    ExperienciaLaboralComponent,
+    EducacionComponent,
+    HabilidadesComponent,
+    PiePaginaComponent,
+    BarraNavComponent
   ],
   imports: [
     BrowserModule
