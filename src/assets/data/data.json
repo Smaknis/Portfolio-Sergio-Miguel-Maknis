@@ -1,0 +1,126 @@
+{
+    "name": "Sergio Miguel Maknis",
+    "backImage": "",
+    "image": "",
+    "position": "Contador Público",
+    "company": {
+        "name": "CRONTAB S.A.",
+        "img": "",
+        "url": ""
+    },
+    "title": "Full Stack Developer Jr.",
+    "ubication": "Rosario (Provincia de Santa Fe - Argentina)",
+    "school":{
+        "name": "",
+        "img": "",
+        "url": ""
+    },
+    "about": "Contador Público graduado en la UNR",
+    "about2": "Estudiante del curso Argentina Programa - #Yo programo segunda edición.",
+    "jobs": [{
+            "position": "Responsable de Tesorería",
+            "companyJournal": "Crontab SA - Jornada completa",
+            "dateStart": "Febrero 2020",
+            "dateEnd": "a la actualidad",
+            "ubicationJob": "Rosario y alrededores, Argentina.",
+            "img": "./assets/logo-com-pauny1.png"
+        },
+        {
+            "position": "Administrativo Profesional Sr.",
+            "companyJournal": "Hospital Provincial de Rosario - Jornada completa",
+            "dateStart": "Febrero 2017",
+            "dateEnd": "Enero 2020",
+            "ubicationJob": "Rosario, Argentina.",
+            "img": "./assets/logo-hpr1.jpg"
+        },
+        {
+            "position": "Administrativo Ssr.",
+            "companyJournal": "Cargill SACI - Jornada completa",
+            "dateStart": "Febrero 2008",
+            "dateEnd": "Enero 2017",
+            "ubicationJob": "Rosario, Argentina.",
+            "img": "./assets/logo-cargill1.png"
+        },
+        {
+            "position": "Auxiliar Administrativo Cajero Full",
+            "companyJournal": "Banco de Galicia y de Buenos Aires SA - Jornada completa",
+            "dateStart": "Noviembre 2004",
+            "dateEnd": "Enero 2008",
+            "ubicationJob": "Rosario, Argentina.",
+            "img": "./assets/logo-cargill1.png"
+        }
+    ],
+    "education": [{
+            "institute": "Universidad Nacional de Rosario - UNR",
+            "title": "Contador Público",
+            "score": "",
+            "yearStart": "2000",
+            "yearEnd": "2012",
+            "img": "./assets/logo-UNR-FCEyE.jpg"
+        },
+        {
+            "institute": "Escuela Superior de Comercio Libertador General San Martin - UNR",
+            "title": "Bachiller Comercial",
+            "score": "",
+            "yearStart": "1995",
+            "yearEnd": "1999",
+            "img": "./assets/logo-sup-comercio.jpg"
+        }
+    ],
+    "hardSkills": [{        
+            "title": "Contabilidad",
+            "score": "75%"
+        },
+        {        
+            "title": "Administración",
+            "score": "60%"
+        },
+        {        
+            "title": "Excel",
+            "score": "70%"
+        },
+        {        
+            "title": "Cash Flow",
+            "score": "90%"
+        },
+        {        
+            "title": "HTML/CSS",
+            "score": "40%"
+        },
+        {        
+            "title": "JavaScript",
+            "score": "25%"
+        }
+    ],
+    "softSkills": [{        
+            "title": "Trabajo en equipo",
+            "score": "100%"
+        },
+        {        
+            "title": "Empatía",
+            "score": "100%"
+        },
+        {        
+            "title": "Adaptación al cambio",
+            "score": "100%"
+        },
+        {        
+            "title": "Capacidad para resolver problemas",
+            "score": "100%"
+        },
+        {        
+            "title": "Espíritu de servicio",
+            "score": "100%"
+        },
+        {        
+            "title": "Respeto a las opiniones",
+            "score": "100%"
+        }
+    ],
+    "proyects": {
+        "name": "Portfolio",
+        "description": "Desarrollé un sitio web en Angular para el Programa Argentina Programa - #Yo Programo - Segunda Edición"
+    }
+
+
+}
