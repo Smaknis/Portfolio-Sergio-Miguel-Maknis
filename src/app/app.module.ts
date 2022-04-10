@@ -9,6 +9,7 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { BarraNavComponent } from './componentes/barra-nav/barra-nav.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BarraNavComponent } from './componentes/barra-nav/barra-nav.component';
     BarraNavComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

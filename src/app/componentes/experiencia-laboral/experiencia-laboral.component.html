@@ -4,26 +4,14 @@
         <div class="bs-component">
           <div class="card bg-light mb-3" style="max-width: 60rem;">
             <div class="card-header"><h4>Experiencia Laboral</h4></div>
-            <div class="card-body">
-              <img src="./assets/logo-com-pauny1.png" class="img-card">
-              <h5 class="card-title">Administrativo Contable Sr.</h5>
-              <p class="card-text">Crontab SA - Jornada completa<br>Febrero 2020 - a la actualidad<br>Rosario y alrededores, Argentina.</p>
-            </div>
-            <div class="card-body">
-              <img src="./assets/logo-hpr1.jpg" class="img-card">
-              <h5 class="card-title">Administrativo Profesional Sr.</h5>
-              <p class="card-text">Hospital Provincial de Rosario - Jornada completa<br>Febrero 2017 - Enero 2020<br>Rosario, Argentina.</p>
-            </div>
-            <div class="card-body">
-              <img src="./assets/logo-cargill1.png" class="img-card">
-              <h5 class="card-title">Administrativo Ssr.</h5>
-              <p class="card-text">Cargill SACI - Jornada completa<br>Febrero 2008 - Enero 2017<br>Rosario, Argentina.</p>
-            </div>
-            <div class="card-body">
-              <img src="./assets/logo-banco-galicia1.png" class="img-card">                                
-              <h5 class="card-title">Auxiliar Administrativo Cajero Full</h5>
-              <p class="card-text">Banco de Galicia y de Buenos Aires SA - Jornada completa<br>Noviembre 2004 - Enero 2008<br>Rosario, Argentina.</p>
-            </div>
+            <ul *ngFor="let jobs of jobsList">
+              <div class="card-body">
+                <img 
+                [src]="jobs.img" class="img-card">
+                <h5 class="card-title">{{jobs.position}}</h5>
+                <p class="card-text">{{jobs.companyJournal}}<br>{{jobs.dateStart}} - {{jobs.dateEnd}}<br>{{jobs.ubicationJob}}</p>
+              </div>
+            </ul>
           </div>
         </div>
       </div>
