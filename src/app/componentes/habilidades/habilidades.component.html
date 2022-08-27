@@ -6,13 +6,19 @@
         <div class="card-body">
           <h5 class="card-title">Hard</h5>
           <ul *ngFor="let hardSkills of hardList">
-            <div class="row">{{hardSkills.title}}</div>
+            <div class="row">{{hardSkills.title}} - {{hardSkills.score}}</div>
           </ul>
+          <!--<div class="col-lg-2 col-sm-6">
+            <div class="icon">
+              <canvas id="miCanvas" width="120" height="60">prueba</canvas>
+              Cash Flow - 90%
+            </div>
+          </div>-->
         </div>
         <div class="card-body">
           <h5 class="card-title">Soft</h5>
           <ul *ngFor="let softSkills of softList">
-            <div class="row">{{softSkills.title}}</div>
+            <div class="row">{{softSkills.title}} - {{softSkills.score}}</div>
           </ul>
         </div>
       </div>
