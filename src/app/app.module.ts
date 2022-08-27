@@ -10,6 +10,7 @@ import { HabilidadesComponent } from './componentes/habilidades/habilidades.comp
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { BarraNavComponent } from './componentes/barra-nav/barra-nav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

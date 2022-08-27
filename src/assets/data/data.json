@@ -1,28 +1,38 @@
 {
-    "name": "Sergio Miguel Maknis",
-    "backImage": "",
-    "image": "",
-    "position": "Contador Público",
-    "company": {
-        "name": "CRONTAB S.A.",
-        "img": "",
-        "url": ""
+    "person":{
+        "name": "Sergio Miguel ",
+        "last_name":"Maknis",
+        "backImage": "./assets/fondo2.jpg",
+        "image": "./assets/foto.jpg",
+        "position": "Contador Público",
+        "title": "Full Stack Developer Jr.",
+        "location": "Rosario (Provincia de Santa Fe - Argentina)"
     },
-    "title": "Full Stack Developer Jr.",
-    "ubication": "Rosario (Provincia de Santa Fe - Argentina)",
-    "school":{
-        "name": "",
-        "img": "",
-        "url": ""
-    },
-    "about": "Contador Público graduado en la UNR",
+    "about1": "Contador Público graduado en la UNR",
     "about2": "Estudiante del curso Argentina Programa - #Yo programo segunda edición.",
-    "jobs": [{
+    "jobs": [
+        {
+            "position": "Supervisor de Finanzas",
+            "companyJournal": "Metalsur Carrocerias SA - Jornada completa",
+            "dateStart": "Agosto 2022",
+            "dateEnd": "a la actualidad",
+            "locationJob": "Rosario y alrededores, Argentina.",
+            "img": "./assets/logo-metalsur1.png"
+        },
+        {
+            "position": "Tesorero",
+            "companyJournal": "Construcciones Fundar SA - Jornada completa",
+            "dateStart": "Mayo 2022",
+            "dateEnd": "Julio 2022",
+            "locationJob": "Rosario, Argentina.",
+            "img": "./assets/logo-fundar.jpg"
+        },
+        {
             "position": "Responsable de Tesorería",
             "companyJournal": "Crontab SA - Jornada completa",
             "dateStart": "Febrero 2020",
-            "dateEnd": "a la actualidad",
-            "ubicationJob": "Rosario y alrededores, Argentina.",
+            "dateEnd": "Mayo 2022",
+            "locationJob": "Rosario y alrededores, Argentina.",
             "img": "./assets/logo-com-pauny1.png"
         },
         {
@@ -30,7 +40,7 @@
             "companyJournal": "Hospital Provincial de Rosario - Jornada completa",
             "dateStart": "Febrero 2017",
             "dateEnd": "Enero 2020",
-            "ubicationJob": "Rosario, Argentina.",
+            "locationJob": "Rosario, Argentina.",
             "img": "./assets/logo-hpr1.jpg"
         },
         {
@@ -38,7 +48,7 @@
             "companyJournal": "Cargill SACI - Jornada completa",
             "dateStart": "Febrero 2008",
             "dateEnd": "Enero 2017",
-            "ubicationJob": "Rosario, Argentina.",
+            "locationJob": "Rosario, Argentina.",
             "img": "./assets/logo-cargill1.png"
         },
         {
@@ -46,8 +56,8 @@
             "companyJournal": "Banco de Galicia y de Buenos Aires SA - Jornada completa",
             "dateStart": "Noviembre 2004",
             "dateEnd": "Enero 2008",
-            "ubicationJob": "Rosario, Argentina.",
-            "img": "./assets/logo-cargill1.png"
+            "locationJob": "Rosario, Argentina.",
+            "img": "./assets/logo-banco-galicia1.png"
         }
     ],
     "education": [{
@@ -105,7 +115,7 @@
             "score": "100%"
         },
         {        
-            "title": "Capacidad para resolver problemas",
+            "title": "Resolución de problemas",
             "score": "100%"
         },
         {        
@@ -119,7 +129,7 @@
     ],
     "proyects": {
         "name": "Portfolio",
-        "description": "Desarrollé un sitio web en Angular para el Programa Argentina Programa - #Yo Programo - Segunda Edición"
+        "description": "Desarrolle un sitio web en Angular para el Programa Argentina Programa - #Yo Programo - Segunda Edición."
     }
 
 

@@ -1,14 +1,14 @@
 <div>
-  <img src="./assets/fondo2.jpg" class="img-responsive">
+  <img src={{miPortfolio.person.backImage}} class="img-responsive">
 </div>
 <div class="container">
   <div class="page-header" id="banner">
     <div class="row">
       <div class="col-lg-8 col-md-7 col-sm-6">
-        <img src="./assets/foto.jpg" class="rounded-circle">
+        <img src={{miPortfolio.person.image}} class="rounded-circle">
         <br><br>
-        <h2>{{miPortfolio.name}}</h2>
-        <p class="lead">{{miPortfolio.position}}<br>{{miPortfolio.title}}<br>{{miPortfolio.ubication}}</p>
+        <h2>{{miPortfolio.person.name}}{{miPortfolio.person.last_name}}</h2>
+        <p class="lead">{{miPortfolio.person.position}}<br>{{miPortfolio.person.title}}<br>{{miPortfolio.person.location}}</p>
       </div>
     </div>
   </div>
