@@ -13,7 +13,7 @@ export class ExperienciaLaboralComponent implements OnInit {
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       console.log(data);
-      this.jobsList=data.jobs;
+      this.jobsList=data.job;
     });
   }
 

@@ -7,9 +7,9 @@
             <ul *ngFor="let jobs of jobsList">
               <div class="card-body">
                 <img 
-                [src]="jobs.img" class="img-card">
+                [src]="jobs.url_logo_job" class="img-card">
                 <h5 class="card-title">{{jobs.position}}</h5>
-                <p class="card-text">{{jobs.companyJournal}}<br>{{jobs.dateStart}} - {{jobs.dateEnd}}<br>{{jobs.locationJob}}</p>
+                <p class="card-text">{{jobs.company}} - {{jobs.journal_type}}<br>{{jobs.date_start}} - {{jobs.date_end}}<br>{{jobs.location_sob}}</p>
               </div>
             </ul>
           </div>

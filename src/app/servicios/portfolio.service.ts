@@ -10,7 +10,9 @@ export class PortfolioService {
   constructor(private http:HttpClient) { }
 
   obtenerDatos():Observable<any>{
-    return this.http.get('/assets/data/data.json'); //lo que esta entre parentesis tiene que reemplazarse por una url con la que nos vamos a comunicar y vamos a enviar un request
+    return this.http.get('http://localhost:8080/portfolio/1'); //lo que esta entre parentesis tiene que reemplazarse por una url con la que nos vamos a comunicar y vamos a enviar un request
   }
 
 }
+
+//  /assets/data/data.json 

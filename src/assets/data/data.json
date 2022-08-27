@@ -2,79 +2,85 @@
     "person":{
         "name": "Sergio Miguel ",
         "last_name":"Maknis",
-        "backImage": "./assets/fondo2.jpg",
-        "image": "./assets/foto.jpg",
+        "back_image": "./assets/fondo2.jpg",
+        "url_image": "./assets/foto.jpg",
         "position": "Contador Público",
         "title": "Full Stack Developer Jr.",
-        "location": "Rosario (Provincia de Santa Fe - Argentina)"
+        "location": "Rosario (Provincia de Santa Fe - Argentina)",
+        "about1": "Contador Público graduado en la UNR",
+        "about2": "Estudiante del curso Argentina Programa - #Yo programo segunda edición."
     },
-    "about1": "Contador Público graduado en la UNR",
-    "about2": "Estudiante del curso Argentina Programa - #Yo programo segunda edición.",
-    "jobs": [
+    "job": [
         {
             "position": "Supervisor de Finanzas",
-            "companyJournal": "Metalsur Carrocerias SA - Jornada completa",
-            "dateStart": "Agosto 2022",
-            "dateEnd": "a la actualidad",
-            "locationJob": "Rosario y alrededores, Argentina.",
-            "img": "./assets/logo-metalsur1.png"
+            "company": "Metalsur Carrocerias SA",
+            "journal_type" : "Jornada completa",
+            "date_start": "Agosto 2022",
+            "date_end": "a la actualidad",
+            "location_job": "Rosario y alrededores, Argentina.",
+            "url_logo_job": "./assets/logo-metalsur1.png"
         },
         {
             "position": "Tesorero",
-            "companyJournal": "Construcciones Fundar SA - Jornada completa",
-            "dateStart": "Mayo 2022",
-            "dateEnd": "Julio 2022",
-            "locationJob": "Rosario, Argentina.",
-            "img": "./assets/logo-fundar.jpg"
+            "company": "Construcciones Fundar SA",
+            "journal_type" : "Jornada completa",
+            "date_start": "Mayo 2022",
+            "date_end": "Julio 2022",
+            "location_job": "Rosario, Argentina.",
+            "url_logo_job": "./assets/logo-fundar.jpg"
         },
         {
             "position": "Responsable de Tesorería",
-            "companyJournal": "Crontab SA - Jornada completa",
-            "dateStart": "Febrero 2020",
-            "dateEnd": "Mayo 2022",
-            "locationJob": "Rosario y alrededores, Argentina.",
-            "img": "./assets/logo-com-pauny1.png"
+            "company": "Crontab SA",
+            "journal_type" : "Jornada completa",
+            "date_start": "Febrero 2020",
+            "date_end": "Mayo 2022",
+            "location_job": "Rosario y alrededores, Argentina.",
+            "url_logo_job": "./assets/logo-com-pauny1.png"
         },
         {
             "position": "Administrativo Profesional Sr.",
-            "companyJournal": "Hospital Provincial de Rosario - Jornada completa",
-            "dateStart": "Febrero 2017",
-            "dateEnd": "Enero 2020",
-            "locationJob": "Rosario, Argentina.",
-            "img": "./assets/logo-hpr1.jpg"
+            "company": "Hospital Provincial de Rosario",
+            "journal_type" : "Jornada completa",
+            "date_start": "Febrero 2017",
+            "date_end": "Enero 2020",
+            "location_job": "Rosario, Argentina.",
+            "url_logo_job": "./assets/logo-hpr1.jpg"
         },
         {
             "position": "Administrativo Ssr.",
-            "companyJournal": "Cargill SACI - Jornada completa",
-            "dateStart": "Febrero 2008",
-            "dateEnd": "Enero 2017",
-            "locationJob": "Rosario, Argentina.",
-            "img": "./assets/logo-cargill1.png"
+            "company": "Cargill SACI",
+            "journal_type" : "Jornada completa",
+            "date_start": "Febrero 2008",
+            "date_end": "Enero 2017",
+            "location_job": "Rosario, Argentina.",
+            "url_logo_job": "./assets/logo-cargill1.png"
         },
         {
             "position": "Auxiliar Administrativo Cajero Full",
-            "companyJournal": "Banco de Galicia y de Buenos Aires SA - Jornada completa",
-            "dateStart": "Noviembre 2004",
-            "dateEnd": "Enero 2008",
-            "locationJob": "Rosario, Argentina.",
-            "img": "./assets/logo-banco-galicia1.png"
+            "company": "Banco de Galicia y de Buenos Aires SA",
+            "journal_type" : "Jornada completa",
+            "date_start": "Noviembre 2004",
+            "date_end": "Enero 2008",
+            "location_job": "Rosario, Argentina.",
+            "url_logo_job": "./assets/logo-banco-galicia1.png"
         }
     ],
     "education": [{
             "institute": "Universidad Nacional de Rosario - UNR",
             "title": "Contador Público",
             "score": "",
-            "yearStart": "2000",
-            "yearEnd": "2012",
-            "img": "./assets/logo-UNR-FCEyE.jpg"
+            "year_start": "2000",
+            "year_end": "2012",
+            "url_logo_education": "./assets/logo-UNR-FCEyE.jpg"
         },
         {
             "institute": "Escuela Superior de Comercio Libertador General San Martin - UNR",
             "title": "Bachiller Comercial",
             "score": "",
-            "yearStart": "1995",
-            "yearEnd": "1999",
-            "img": "./assets/logo-sup-comercio.jpg"
+            "year_start": "1995",
+            "year_end": "1999",
+            "url_logo_education": "./assets/logo-sup-comercio.jpg"
         }
     ],
     "hardSkills": [{        
