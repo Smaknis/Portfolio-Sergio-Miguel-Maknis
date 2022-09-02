@@ -3,14 +3,36 @@
       <div class="col-lg-12">
         <div class="bs-component">
           <div class="card bg-light mb-3" style="max-width: 60rem;">
-            <div class="card-header"><h4>Experiencia Laboral</h4></div>
+            <div class="card-header">
+              <h4>Experiencia Laboral
+                <fa-icon
+                  style='align: right'
+                  class="btn"  
+                  [icon]="faPlus"
+                  [ngStyle] = "{'color':'black'}"
+                ></fa-icon>
+              </h4>
+            </div>
+            
             <ul *ngFor="let jobs of jobsList">
               <div class="card-body">
                 <img 
                 [src]="jobs.url_logo_job" class="img-card">
-                <h5 class="card-title">{{jobs.position}}</h5>
+                <h5 class="card-title">
+                  {{jobs.position}}
+                  <fa-icon
+                    [icon]="faEdit"
+                    [ngStyle] = "{'color':'black'}"
+                    (click)="onEdit()"
+                  ></fa-icon>
+                  <fa-icon
+                    [icon]="faTrashAlt"
+                    [ngStyle] = "{'color':'black'}"
+                    (click)="onDelete()"
+                  ></fa-icon>
+                </h5>
                 <p class="card-text">{{jobs.company}} - {{jobs.journal_type}}<br>{{jobs.date_start}} - {{jobs.date_end}}<br>{{jobs.location_sob}}</p>
-              </div>
+                </div>
             </ul>
           </div>
         </div>
