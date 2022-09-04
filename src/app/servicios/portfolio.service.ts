@@ -1,6 +1,13 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Job } from '../Job' 
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':'application/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +15,18 @@ import { Observable } from 'rxjs';
 export class PortfolioService {
 
   private apiUrl = 'http://localhost:8080/portfolio/1'
+  private apiUrlj = 'http://localhost:8080/newjob/job'
 
   constructor(private http:HttpClient) { }
   
   obtenerDatos():Observable<any>{
     return this.http.get(this.apiUrl); //lo que esta entre parentesis tiene que reemplazarse por una url con la que nos vamos a comunicar y vamos a enviar un request
   }
+
+  agregarExperiencia(job:Job):Observable<Job>{
+    return this.http.post<Job>(this.apiUrlj, job, httpOptions);
+  }
+
   /*
   deleteExperiencia(task:Task): Observable<Task>{
     const url = `${this.apiUrl}/${experiencia.id}`

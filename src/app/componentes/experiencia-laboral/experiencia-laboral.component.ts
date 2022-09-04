@@ -1,6 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { faEdit, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Job } from '../../Job' 
 
 @Component({
   selector: 'app-experiencia-laboral',
@@ -9,6 +10,7 @@ import { faEdit, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 })
 export class ExperienciaLaboralComponent implements OnInit {
   jobsList:any=0;
+  jobs: Job[] = [];
   
   constructor(private datosPortfolio:PortfolioService) { }
   
@@ -30,6 +32,12 @@ export class ExperienciaLaboralComponent implements OnInit {
 
   onEdit(){
     console.log("edit");
+  }
+
+  agregarExperiencia(job:Job){
+    this.datosPortfolio.agregarExperiencia(job).subscribe((job)=>(
+    this.jobs.push(job)
+    ));
   }
 
 }
