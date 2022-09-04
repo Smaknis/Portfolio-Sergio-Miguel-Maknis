@@ -6,11 +6,9 @@
           <div class="card bg-light mb-3" style="max-width: 60rem;">
             <div class="card-header">
               <h4>Experiencia Laboral
-                <fa-icon
-                  class="btn"  
-                  [icon]="faPlus"
-                  [ngStyle] = "{'color':'black'}"
-                ></fa-icon>
+                <app-boton
+                  (botonClick)="switchFormulario()">
+                </app-boton>
                 <app-agregar-experiencia
                   (onAgregarExperiencia)="agregarExperiencia($event)"
                 >

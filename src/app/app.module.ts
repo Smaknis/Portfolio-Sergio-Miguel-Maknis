@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AgregarExperienciaComponent } from './componentes/agregar-experiencia/agregar-experiencia.component';
 import { FormsModule } from '@angular/forms';
+import { BotonComponent } from './componentes/boton/boton.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     HabilidadesComponent,
     PiePaginaComponent,
     BarraNavComponent,
-    AgregarExperienciaComponent
+    AgregarExperienciaComponent,
+    BotonComponent
   ],
   imports: [
     BrowserModule,

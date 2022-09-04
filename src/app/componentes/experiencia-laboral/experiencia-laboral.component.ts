@@ -26,6 +26,10 @@ export class ExperienciaLaboralComponent implements OnInit {
     });
   }
 
+  switchFormulario(){
+    console.log("cambiar");
+  }
+
   onDelete() {
     console.log("delete");
   }
