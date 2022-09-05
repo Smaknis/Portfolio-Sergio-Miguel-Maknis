@@ -13,31 +13,18 @@
                   (onAgregarExperiencia)="agregarExperiencia($event)"
                 >
                 </app-agregar-experiencia>
+                <app-experiencia-item
+                  *ngFor="let job of jobsList"
+                  [job] = "job"
+                  (onDeleteJob)="deleteJob(job)"
+                  (onEditJob)="editJob(job)"
+                >
+                </app-experiencia-item>
+                
               </h4>
             </div>
             
-            <ul *ngFor="let jobs of jobsList">
-              <div class="card-body">
-                <img 
-                [src]="jobs.url_logo_job" class="img-card">
-                <h5 class="card-title">
-                  {{jobs.position}}
-                  <fa-icon
-                    class="btn"
-                    [icon]="faEdit"
-                    [ngStyle] = "{'color':'black'}"
-                    (click)="onEdit()"
-                  ></fa-icon>
-                  <fa-icon
-                    class="btn"
-                    [icon]="faTrashAlt"
-                    [ngStyle] = "{'color':'black'}"
-                    (click)="onDelete()"
-                  ></fa-icon>
-                </h5>
-                <p class="card-text">{{jobs.company}} - {{jobs.journal_type}}<br>{{jobs.date_start}} - {{jobs.date_end}}<br>{{jobs.location_sob}}</p>
-                </div>
-            </ul>
+            
           </div>
         </div>
       </div>

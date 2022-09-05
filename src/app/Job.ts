@@ -1,5 +1,5 @@
 export interface Job {
-    id?: number,
+    id_job?: number,
     position: string,
     company: string,
     journal_type: string,

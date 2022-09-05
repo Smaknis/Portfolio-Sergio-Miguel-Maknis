@@ -15,6 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AgregarExperienciaComponent } from './componentes/agregar-experiencia/agregar-experiencia.component';
 import { FormsModule } from '@angular/forms';
 import { BotonComponent } from './componentes/boton/boton.component';
+import { ExperienciaItemComponent } from './componentes/experiencia-item/experiencia-item.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BotonComponent } from './componentes/boton/boton.component';
     PiePaginaComponent,
     BarraNavComponent,
     AgregarExperienciaComponent,
-    BotonComponent
+    BotonComponent,
+    ExperienciaItemComponent
   ],
   imports: [
     BrowserModule,

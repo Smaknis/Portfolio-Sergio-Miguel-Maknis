@@ -1,7 +1,6 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
-import { faEdit, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { Job } from '../../Job' 
+import { Job } from '../../Job';
 
 @Component({
   selector: 'app-experiencia-laboral',
@@ -9,20 +8,18 @@ import { Job } from '../../Job'
   styleUrls: ['./experiencia-laboral.component.css']
 })
 export class ExperienciaLaboralComponent implements OnInit {
-  jobsList:any=0;
-  jobs: Job[] = [];
   
+  jobsList: Job[] = [];
+
+    
   constructor(private datosPortfolio:PortfolioService) { }
-  
-  faEdit = faEdit;
-  faPlus = faPlus;
-  faTrashAlt = faTrashAlt;
   
   
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       console.log(data);
       this.jobsList=data.job;
+ 
     });
   }
 
@@ -30,17 +27,23 @@ export class ExperienciaLaboralComponent implements OnInit {
     console.log("cambiar");
   }
 
-  onDelete() {
-    console.log("delete");
+  deleteJob(job:Job) {
+    this.datosPortfolio.eliminarJob(job)
+    .subscribe(
+      ()=>(
+      this.jobsList = this.jobsList.filter( (j) =>{
+        return j.id_job !== job.id_job}) 
+    ))
+
   }
 
-  onEdit(){
+  editJob(job:Job){
     console.log("edit");
   }
 
   agregarExperiencia(job:Job){
     this.datosPortfolio.agregarExperiencia(job).subscribe((job)=>(
-    this.jobs.push(job)
+    this.jobsList.push(job)
     ));
   }
 

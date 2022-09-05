@@ -16,6 +16,7 @@ export class PortfolioService {
 
   private apiUrl = 'http://localhost:8080/portfolio/1'
   private apiUrlj = 'http://localhost:8080/newjob/job'
+  private apiUrljd = 'http://localhost:8080/deletejob'
 
   constructor(private http:HttpClient) { }
   
@@ -25,6 +26,11 @@ export class PortfolioService {
 
   agregarExperiencia(job:Job):Observable<Job>{
     return this.http.post<Job>(this.apiUrlj, job, httpOptions);
+  }
+
+  eliminarJob(job:Job): Observable<Job>{
+    const url = `${this.apiUrljd}/${job.id_job}`
+    return this.http.delete<Job>(url)
   }
 
   /*
