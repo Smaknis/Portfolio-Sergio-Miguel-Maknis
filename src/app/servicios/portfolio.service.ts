@@ -14,34 +14,35 @@ const httpOptions = {
 })
 export class PortfolioService {
 
-  private apiUrl = 'http://localhost:8080/portfolio/1'
-  private apiUrlj = 'http://localhost:8080/newjob/job'
-  private apiUrljd = 'http://localhost:8080/deletejob'
-
+  private apiUrl = 'http://localhost:8080'
+    
   constructor(private http:HttpClient) { }
   
   obtenerDatos():Observable<any>{
-    return this.http.get(this.apiUrl); //lo que esta entre parentesis tiene que reemplazarse por una url con la que nos vamos a comunicar y vamos a enviar un request
+    const url = `${this.apiUrl}/portfolio/1`
+    return this.http.get(url) //lo que esta entre parentesis tiene que reemplazarse por una url con la que nos vamos a comunicar y vamos a enviar un request
   }
 
-  agregarExperiencia(job:Job):Observable<Job>{
-    return this.http.post<Job>(this.apiUrlj, job, httpOptions);
+  agregarJob(job:Job):Observable<Job>{
+    const url = `${this.apiUrl}/newjob/job`
+    return this.http.post<Job>(url, job, httpOptions)
   }
 
   eliminarJob(job:Job): Observable<Job>{
-    const url = `${this.apiUrljd}/${job.id_job}`
+    const url = `${this.apiUrl}/deletejob/${job.id_job}`
     return this.http.delete<Job>(url)
   }
 
-  /*
-  deleteExperiencia(task:Task): Observable<Task>{
-    const url = `${this.apiUrl}/${experiencia.id}`
-    return this.http.delete<Task>(url)
+  editarJob(job:Job): Observable<Job>{
+    const url = `${this.apiUrl}/editjob/${job.id_job}`
+    return this.http.put<Job>(url, job, httpOptions)
   }
 
-  updateExperiencia(task:Task): Observable<Task>{
-    const url = `${this.apiUrl}/${experiencia.id}`
-    return this.http.put<Task>(url, task, httpOptions)
+  /*
+
+  updateExperiencia(job:Job): Observable<Job>{
+    const url = `${this.apiUrlj}/${experiencia.id}`
+    return this.http.put<Job>(apiUrlj, job, httpOptions);
   }
 
   addExperiencia(task:Task): Observable<Task>{

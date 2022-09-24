@@ -13,7 +13,6 @@ export class HabilidadesComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      console.log(data);
       this.hardList=data.hardSkills;
       this.softList=data.softSkills;
     });

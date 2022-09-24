@@ -16,6 +16,7 @@ import { AgregarExperienciaComponent } from './componentes/agregar-experiencia/a
 import { FormsModule } from '@angular/forms';
 import { BotonComponent } from './componentes/boton/boton.component';
 import { ExperienciaItemComponent } from './componentes/experiencia-item/experiencia-item.component';
+import { EditarExperienciaComponent } from './componentes/editar-experiencia/editar-experiencia.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ExperienciaItemComponent } from './componentes/experiencia-item/experie
     BarraNavComponent,
     AgregarExperienciaComponent,
     BotonComponent,
-    ExperienciaItemComponent
+    ExperienciaItemComponent,
+    EditarExperienciaComponent
   ],
   imports: [
     BrowserModule,

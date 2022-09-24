@@ -9,14 +9,16 @@ import { JOBS } from '../../mock-Job'
   styleUrls: ['./experiencia-item.component.css']
 })
 export class ExperienciaItemComponent implements OnInit {
-  @Input() job: Job = JOBS[0];
+  @Input() job: Job = JOBS[0]
   @Output() onDeleteJob: EventEmitter<Job> = new EventEmitter()
   @Output() onEditJob: EventEmitter<Job> = new EventEmitter()
+  
 
   faEdit = faEdit;
   faPlus = faPlus;
   faTrashAlt = faTrashAlt;
- 
+  experienciaEditar = null;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -28,5 +30,9 @@ export class ExperienciaItemComponent implements OnInit {
 
   onEdit(job: Job){
     this.onEditJob.emit(job);
+  }
+
+  cerrarEdicion(job: Job){
+    this.experienciaEditar = null;
   }
 }

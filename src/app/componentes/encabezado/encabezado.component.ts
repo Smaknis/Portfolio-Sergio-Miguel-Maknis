@@ -8,6 +8,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class EncabezadoComponent implements OnInit {
   miPortfolio:any=0;
+  
   constructor(private datosPortfolio:PortfolioService) { }
 
   ngOnInit(): void {

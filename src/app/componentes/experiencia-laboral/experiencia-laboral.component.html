@@ -6,25 +6,25 @@
           <div class="card bg-light mb-3" style="max-width: 60rem;">
             <div class="card-header">
               <h4>Experiencia Laboral
-                <app-boton
-                  (botonClick)="switchFormulario()">
+                <app-boton (botonClick)="switchFormulario()" >
+                  
                 </app-boton>
                 <app-agregar-experiencia
-                  (onAgregarExperiencia)="agregarExperiencia($event)"
+                  (onAgregarExperiencia)="agregarJob($event)"
                 >
                 </app-agregar-experiencia>
+              </h4>
+              <div class="card-body">
                 <app-experiencia-item
                   *ngFor="let job of jobsList"
+                  
                   [job] = "job"
                   (onDeleteJob)="deleteJob(job)"
                   (onEditJob)="editJob(job)"
                 >
                 </app-experiencia-item>
-                
-              </h4>
+              </div>
             </div>
-            
-            
           </div>
         </div>
       </div>
