@@ -1,0 +1,10 @@
+<div *ngIf="experienciaOriginal">
+    <h5>Edicion de la Experiencia</h5>
+    <form novalidate [formGroup]="form" (ngSubmit)="onGuardar()">
+        <input type="text" md-input placeholder="Posición" formControlName="position" > 
+        <input type="text" md-input placeholder="Empresa" formControlName="company" > 
+    <button type="submit"md-button>Guardar</button>
+    <button type="button" md-button (click)="onCancelar">Cancelar</button>
+    </form>
+</div>
+

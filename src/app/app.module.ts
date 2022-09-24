@@ -11,6 +11,12 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
 import { BarraNavComponent } from './componentes/barra-nav/barra-nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AgregarExperienciaComponent } from './componentes/agregar-experiencia/agregar-experiencia.component';
+import { FormsModule } from '@angular/forms';
+import { BotonComponent } from './componentes/boton/boton.component';
+import { ExperienciaItemComponent } from './componentes/experiencia-item/experiencia-item.component';
+import { EditarExperienciaComponent } from './componentes/editar-experiencia/editar-experiencia.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +27,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     EducacionComponent,
     HabilidadesComponent,
     PiePaginaComponent,
-    BarraNavComponent
+    BarraNavComponent,
+    AgregarExperienciaComponent,
+    BotonComponent,
+    ExperienciaItemComponent,
+    EditarExperienciaComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

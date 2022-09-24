@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="bs-docs-section">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="card bg-light mb-3" style="max-width: 60rem;">
+<ul>
+  <div class="card-body">
+    <img [src]="job.url_logo_job" class="img-card"/>
+    <h5 class="card-title">
+      {{ job.position }}
+      <fa-icon
+        class="btn"
+        [icon]="faEdit"
+        [ngStyle]="{ color: 'black' }"
+        (click)="onEdit(job)"
+      ></fa-icon>
+      <fa-icon
+        class="btn"
+        [icon]="faTrashAlt"
+        [ngStyle]="{ color: 'black' }"
+        (click)="onDelete(job)"
+      ></fa-icon>
+    </h5>
+    <h6>
+      <p class="card-text">
+        {{ job.company }} - {{ job.journal_type }}<br/>
+        {{ job.date_start }} - {{ job.date_end }}<br/>
+        {{ job.location_job }}
+                
+      </p>
+    </h6>
+  </div>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+

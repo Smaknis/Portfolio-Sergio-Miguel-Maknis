@@ -7,14 +7,15 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./pie-pagina.component.css']
 })
 export class PiePaginaComponent implements OnInit {
-  footer:any=0;
+  proyectList:any=0;
   constructor(private datosPortfolio:PortfolioService) { }
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      console.log(data);
-      this.footer=data.proyects;
+      this.proyectList=data.proyect;
+      
     });
   }
+
 
 }
