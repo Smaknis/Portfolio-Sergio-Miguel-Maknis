@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { Job } from '../../Job';
 import { UiService } from 'src/app/servicios/ui.service';
@@ -14,10 +14,11 @@ export class ExperienciaLaboralComponent implements OnInit {
   jobsList: Job[] = [];
   showAgregarExp: boolean = false;
   subscription?: Subscription;
-    
+      
   constructor(
     private datosPortfolio: PortfolioService, 
-    private uiService: UiService
+    private portfolioService: PortfolioService,
+    private uiService: UiService,
     ) {
       this.subscription = this.uiService.onSwitch()
       .subscribe(value=>this.showAgregarExp = value)
@@ -51,11 +52,17 @@ export class ExperienciaLaboralComponent implements OnInit {
   
   }
 
-  editJob(job:Job){
-    console.log("edit");
+  editarJob(job:Job){
+    this.portfolioService.editarJob(job).subscribe();
+    this.uiService.switchExperienciaE(job);
+    
   }
 
-
-
+  editJob(job:Job){
+    job.edit = !job.edit;
+    this.portfolioService.updateEditJob(job).subscribe();
+    this.uiService.switchExperienciaE(job);
+    
+  }
 
 }

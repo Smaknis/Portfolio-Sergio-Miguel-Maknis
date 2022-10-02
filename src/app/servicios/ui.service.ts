@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { Job } from '../Job' 
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,9 @@ import { Observable, Subject } from 'rxjs';
 export class UiService {
   private showAgregarExp:boolean = false;
   private subject = new Subject<any>();
-
+  private edit:boolean = false;
+  private subject1 = new Subject<any>();
+  
   constructor() { }
 
   switchExperiencia():void{
@@ -19,4 +22,16 @@ export class UiService {
   onSwitch():Observable<any>{
     return this.subject.asObservable();
   }
+
+  switchExperienciaE(job:Job){
+    this.edit = !this.edit;
+    this.subject1.next(this.edit);
+
+  }
+
+  onSwitchE():Observable<any>{
+    return this.subject1.asObservable();
+  }
+
+
 }
