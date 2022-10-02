@@ -10,7 +10,8 @@ export const JOBS: Job[] = [
         date_end: "",
         location_job: "",
         url_logo_job: "",
-        personId: 0
+        personId: 0,
+        edit: false
 
     }*/
 ]

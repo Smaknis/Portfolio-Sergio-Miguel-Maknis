@@ -8,4 +8,5 @@ export interface Job {
     location_job: string;
     url_logo_job: string;
     personId: number;
+    edit: boolean;
 }

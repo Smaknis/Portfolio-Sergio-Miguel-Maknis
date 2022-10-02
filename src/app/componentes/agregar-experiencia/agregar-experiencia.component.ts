@@ -21,6 +21,7 @@ export class AgregarExperienciaComponent implements OnInit {
   date_end:string = "";
   location_job:string = "";
   url_logo_job:string = "";
+  edit:boolean = false;
   showAgregarExp: boolean = false;
   subscription?: Subscription;
 
@@ -78,7 +79,8 @@ export class AgregarExperienciaComponent implements OnInit {
       date_start: this.date_start,
       date_end: this.date_end,
       location_job: this.location_job,
-      url_logo_job: this.url_logo_job
+      url_logo_job: this.url_logo_job,
+      edit: this.edit
     }
     this.onAgregarExperiencia.emit(newJob);
     

@@ -38,6 +38,11 @@ export class PortfolioService {
     return this.http.put<Job>(url, job, httpOptions)
   }
 
+  updateEditJob(job:Job): Observable<Job>{
+    const url = `${this.apiUrl}/editjob/${job.id_job}`
+    return this.http.put<Job>(url, job, httpOptions)
+  }
+
   /*
 
   updateExperiencia(job:Job): Observable<Job>{

@@ -17,5 +17,4 @@ export class PiePaginaComponent implements OnInit {
     });
   }
 
-
 }
