@@ -15,6 +15,7 @@ export class ExperienciaItemComponent implements OnInit {
   @Output() onDeleteJob: EventEmitter<Job> = new EventEmitter()
   @Output() onEditJob: EventEmitter<Job> = new EventEmitter()
   @Output() onEditarExperiencia: EventEmitter<Job> = new EventEmitter();
+  @Output() cerrar = new EventEmitter();
 
   faEdit = faEdit;
   faPlus = faPlus;
@@ -83,9 +84,9 @@ export class ExperienciaItemComponent implements OnInit {
    
   }
 
-  onCancelarE(){
+  onCancelarE(job: Job){
     //this.experienciaOriginal = null;
-    //this.cerrar.emit();
+    this.cerrar.emit();
     console.log("cancelar")
   }
 }
