@@ -60,6 +60,29 @@ export class ExperienciaItemComponent implements OnInit {
   }
 
   onGuardarE(j:Job){
+
+    if(this.position===""){
+      this.position=this.job.position
+    };
+    if(this.company===""){
+      this.company=this.job.company
+    };  
+    if(this.journal_type===""){
+      this.journal_type=this.job.journal_type
+    }; 
+    if(this.date_start===""){
+      this.date_start=this.job.date_start
+    };
+    if(this.date_end===""){
+      this.date_end=this.job.date_end
+    };
+    if(this.location_job===""){
+      this.location_job=this.job.location_job
+    };
+    if(this.url_logo_job===""){
+      this.url_logo_job=this.job.url_logo_job
+    };
+    
     const job = {
       personId: this.job.personId,
       position: this.position,
@@ -74,14 +97,9 @@ export class ExperienciaItemComponent implements OnInit {
 
     }
     this.onEditarExperiencia.emit(job);
-    console.log("guardar")
-    console.log(job)
+    this.onEditJob.emit(job);
     
     return
-    //this.datosPortfolio.editarJob(this.job);
-    //this.onCancelarE();
-   // console.log(this.job);
-   
   }
 
   onCancelarE(job: Job){
