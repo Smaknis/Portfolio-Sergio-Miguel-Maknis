@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { Job } from '../../Job';
 import { UiService } from 'src/app/servicios/ui.service';
@@ -7,14 +7,16 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-experiencia-laboral',
   templateUrl: './experiencia-laboral.component.html',
-  styleUrls: ['./experiencia-laboral.component.css']
+  styleUrls: ['./experiencia-laboral.component.css'],
 })
 export class ExperienciaLaboralComponent implements OnInit {
   
   jobsList: Job[] = [];
   showAgregarExp: boolean = false;
   subscription?: Subscription;
-      
+
+  recargarComponente : any;
+        
   constructor(
     private datosPortfolio: PortfolioService, 
     private portfolioService: PortfolioService,
@@ -28,7 +30,6 @@ export class ExperienciaLaboralComponent implements OnInit {
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.jobsList=data.job;
- 
     });
   }
 
@@ -49,20 +50,26 @@ export class ExperienciaLaboralComponent implements OnInit {
     this.datosPortfolio.agregarJob(job).subscribe((job)=>(
     this.jobsList.push(job)
     ));
-  
-  }
-
-  editarJob(job:Job){
-    this.portfolioService.editarJob(job).subscribe();
-    this.uiService.switchExperienciaE(job);
-    
+      
   }
 
   editJob(job:Job){
     job.edit = !job.edit;
     this.portfolioService.updateEditJob(job).subscribe();
     this.uiService.switchExperienciaE(job);
-    
+  }
+
+  editarJob(job:Job){
+    this.portfolioService.editarJob(job).subscribe();
+    this.editJob(job);
+    this.actualizarComponente();
+  
+}
+
+  actualizarComponente(){
+    this.recargarComponente=this.datosPortfolio.obtenerDatos().subscribe(data =>{
+    this.jobsList=data.job;
+  });
   }
 
 }

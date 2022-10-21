@@ -10,3 +10,4 @@ export interface Job {
     personId: number;
     edit: boolean;
 }
+

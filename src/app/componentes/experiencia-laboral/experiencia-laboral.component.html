@@ -16,12 +16,12 @@
               </h4>
               <div class="card-body">
                 <app-experiencia-item
+                  actualizarComponente="recargarComponente"
                   *ngFor="let job of jobsList"
-                  
                   [job] = "job"
                   (onDeleteJob)="deleteJob(job)"
-                  (onEditJob)="editJob(job)"
                   (onEditarExperiencia)="editarJob($event)"
+                  (onEditJob)="editJob(job)"
                 >
                 </app-experiencia-item>
               </div>

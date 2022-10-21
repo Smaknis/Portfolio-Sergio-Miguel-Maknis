@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-experiencia-item',
   templateUrl: './experiencia-item.component.html',
-  styleUrls: ['./experiencia-item.component.css']
+  styleUrls: ['./experiencia-item.component.css'],
 })
 export class ExperienciaItemComponent implements OnInit {
   @Input() job: Job = JOBS[0]
@@ -20,6 +20,7 @@ export class ExperienciaItemComponent implements OnInit {
   faEdit = faEdit;
   faPlus = faPlus;
   faTrashAlt = faTrashAlt;
+  
   experienciaEditar = null;
   edit:boolean = false;
   id: number = 0;
@@ -33,16 +34,13 @@ export class ExperienciaItemComponent implements OnInit {
   location_job:string = "";
   url_logo_job:string = "";
   subscription?: Subscription;
-  experienciaOriginal:string = "";
-
-  constructor(private uiService: UiService
-    ) {
+ 
+  constructor(
+    private uiService: UiService) {
       this.subscription = this.uiService.onSwitchE()
       .subscribe(value=>this.edit = value)
-     }
+  }
   
-  
-
   ngOnInit(): void {
   }
 
@@ -51,38 +49,18 @@ export class ExperienciaItemComponent implements OnInit {
   }
 
   onEdit(job: Job){
+    this.position=this.job.position;
+    this.company=this.job.company
+    this.journal_type=this.job.journal_type
+    this.date_start=this.job.date_start
+    this.date_end=this.job.date_end
+    this.location_job=this.job.location_job
+    this.url_logo_job=this.job.url_logo_job
     this.onEditJob.emit(job);
-  
-  }
-
-  cerrarEdicion(job: Job){
-    this.experienciaEditar = null;
   }
 
   onGuardarE(j:Job){
 
-    if(this.position===""){
-      this.position=this.job.position
-    };
-    if(this.company===""){
-      this.company=this.job.company
-    };  
-    if(this.journal_type===""){
-      this.journal_type=this.job.journal_type
-    }; 
-    if(this.date_start===""){
-      this.date_start=this.job.date_start
-    };
-    if(this.date_end===""){
-      this.date_end=this.job.date_end
-    };
-    if(this.location_job===""){
-      this.location_job=this.job.location_job
-    };
-    if(this.url_logo_job===""){
-      this.url_logo_job=this.job.url_logo_job
-    };
-    
     const job = {
       personId: this.job.personId,
       position: this.position,
@@ -96,15 +74,12 @@ export class ExperienciaItemComponent implements OnInit {
       id_job: this.job.id_job
 
     }
-    this.onEditarExperiencia.emit(job);
-    this.onEditJob.emit(job);
     
+    this.onEditarExperiencia.emit(job);
     return
   }
 
   onCancelarE(job: Job){
-    //this.experienciaOriginal = null;
-    this.cerrar.emit();
-    console.log("cancelar")
+    this.onEditJob.emit(job);
   }
 }
