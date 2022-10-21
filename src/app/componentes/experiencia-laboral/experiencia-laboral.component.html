@@ -1,33 +1,31 @@
-
 <div class="container">
-    <div class="bs-docs-section">
-      <div class="col-lg-12">
-        <div class="bs-component">
-          <div class="card bg-light mb-3" style="max-width: 60rem;">
-            <div class="card-header">
-              <h4>Experiencia Laboral
-                <app-boton (botonClick)="switchFormulario()" >
-                  
-                </app-boton>
-                <app-agregar-experiencia
-                  (onAgregarExperiencia)="agregarJob($event)"
-                >
-                </app-agregar-experiencia>
-              </h4>
-              <div class="card-body">
-                <app-experiencia-item
-                  actualizarComponente="recargarComponente"
-                  *ngFor="let job of jobsList"
-                  [job] = "job"
-                  (onDeleteJob)="deleteJob(job)"
-                  (onEditarExperiencia)="editarJob($event)"
-                  (onEditJob)="editJob(job)"
-                >
-                </app-experiencia-item>
-              </div>
-            </div>
+  <div class="bs-docs-section">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="card bg-light mb-3" style="max-width: 60rem">
+          <div class="card-header">
+            <h4>
+              Experiencia Laboral
+              <app-boton (botonClick)="switchFormulario()"> </app-boton>
+              <app-agregar-experiencia
+                (onAgregarExperiencia)="agregarJob($event)"
+              >
+              </app-agregar-experiencia>
+            </h4>
+          </div>
+          <div class="card-body">
+            <app-experiencia-item
+              actualizarComponente="recargarComponente"
+              *ngFor="let job of jobsList"
+              [job]="job"
+              (onDeleteJob)="deleteJob(job)"
+              (onEditarExperiencia)="editarJob($event)"
+              (onEditJob)="editJob(job)"
+            >
+            </app-experiencia-item>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

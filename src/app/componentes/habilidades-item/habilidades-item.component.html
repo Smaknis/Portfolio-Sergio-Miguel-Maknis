@@ -1,27 +1,44 @@
-<div class="card-body">
-    <h5 class="card-title">Hard</h5>
-    <ul>
-      <div class="col-lg-12" style="max-width: 60rem">
-        {{hard.title}} - {{hard.score}}
-        <fa-icon
-        class="btn"
-        [icon]="faEdit"
-        [ngStyle]="{ color: 'black' }"
-        (click)="onEditH(hard)"
-      ></fa-icon>
-      <fa-icon
-        class="btn"
-        [icon]="faTrashAlt"
-        [ngStyle]="{ color: 'black' }"
-        (click)="onDeleteH(hard)"
-      ></fa-icon>
-    </div>
-    </ul>
-    <!--<div class="col-lg-2 col-sm-6">
+<div class="container">
+  <div class="bs-docs-section">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <h5 class="card-title">Hard</h5>
+        <div class="card bg-light mb-3" style="max-width: 60rem">
+          <ul>
+            <div class="col-lg-12" style="max-width: 60rem">
+              {{ hard.title }} - {{ hard.score }}%
+              <fa-icon
+                class="btn"
+                [icon]="faEdit"
+                [ngStyle]="{ color: 'black' }"
+                (click)="onEditH(hard)"
+              ></fa-icon>
+              <fa-icon
+                class="btn"
+                [icon]="faTrashAlt"
+                [ngStyle]="{ color: 'black' }"
+                (click)="onDeleteH(hard)"
+              ></fa-icon>
+              <div class="progress">
+                <div
+                  class="progress-bar bg-success"
+                  role="progressbar"
+                  [style.width]= "hard.score+'%'"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+          </ul>
+          <!--<div class="col-lg-2 col-sm-6">
       <div class="icon">
         <canvas id="miCanvas" width="120" height="60">prueba</canvas>
         Cash Flow - 90%
       </div>
     </div>-->
+        </div>
+      </div>
+    </div>
   </div>
-  
+</div>

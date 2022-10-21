@@ -1,7 +1,7 @@
 export interface Soft {
     id_soft?: number;
     title: string;
-    score: string;
+    score: number;
     personId: number;
     edit: boolean;
 };
@@ -9,7 +9,7 @@ export interface Soft {
 export interface Hard {
     id_hard?: number;
     title: string;
-    score: string;
+    score: number;
     personId: number;
     edit: boolean;
 };
