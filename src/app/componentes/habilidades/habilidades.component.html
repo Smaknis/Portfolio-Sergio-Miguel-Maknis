@@ -4,23 +4,22 @@
       <div class="card bg-light mb-3" style="max-width: 60rem">
         <div class="card-header"><h4>Hard Skills & Soft Skills</h4></div>
         <div class="card-body">
-          <h5 class="card-title">Hard</h5>
-          <ul *ngFor="let hardSkills of hardList">
-            <div class="row">{{hardSkills.title}} - {{hardSkills.score}}</div>
-          </ul>
-          <!--<div class="col-lg-2 col-sm-6">
-            <div class="icon">
-              <canvas id="miCanvas" width="120" height="60">prueba</canvas>
-              Cash Flow - 90%
-            </div>
-          </div>-->
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Soft</h5>
-          <ul *ngFor="let softSkills of softList">
-            <div class="row">{{softSkills.title}} - {{softSkills.score}}</div>
-          </ul>
-        </div>
+          <app-habilidades-item
+          actualizarComponente="recargarComponente"
+          *ngFor="let hard of hardList"
+          [hard] = "hard"
+          (onDeleteHab)="deleteHard(hard)"
+          (onEditHab)="editHard(hard)"
+          (onEditarHab)="editarHard(hard)"
+          >
+        </app-habilidades-item>
+        <app-habilidades1-item
+        *ngFor="let soft of softList"
+        [soft] = "soft"
+        (onDeleteHab)="deleteHard(soft)"
+        (onEditHab)="editHard(soft)"
+        (onEditarHab)="editarHard(soft)"
+        ></app-habilidades1-item>
       </div>
     </div>
   </div>

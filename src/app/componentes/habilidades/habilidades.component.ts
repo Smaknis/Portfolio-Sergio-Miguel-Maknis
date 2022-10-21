@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { Hard } from '../../Hab';
+import { Soft } from '../../Hab';
 
 @Component({
   selector: 'app-habilidades',
@@ -7,8 +9,10 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./habilidades.component.css']
 })
 export class HabilidadesComponent implements OnInit {
-  hardList:any=0;
-  softList:any=0;
+
+  hardList: Hard[] = [];
+  softList: Soft[] = [];
+
   constructor(private datosPortfolio:PortfolioService) { }
 
   ngOnInit(): void {
@@ -19,5 +23,11 @@ export class HabilidadesComponent implements OnInit {
 
   
   }
+
+  deleteHard(hard:Hard){};
+
+  editHard(hard:Hard){};
+
+  editarHard(hard:Hard){};
 
 }

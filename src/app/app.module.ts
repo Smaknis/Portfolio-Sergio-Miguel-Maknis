@@ -18,6 +18,8 @@ import { BotonComponent } from './componentes/boton/boton.component';
 import { ExperienciaItemComponent } from './componentes/experiencia-item/experiencia-item.component';
 import { EducacionItemComponent } from './componentes/educacion-item/educacion-item.component';
 import { RecargaDirective } from './directives/recarga.directive';
+import { HabilidadesItemComponent } from './componentes/habilidades-item/habilidades-item.component';
+import { Habilidades1ItemComponent } from './componentes/habilidades1-item/habilidades1-item.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { RecargaDirective } from './directives/recarga.directive';
     ExperienciaItemComponent,
     EducacionItemComponent,
     RecargaDirective,
+    HabilidadesItemComponent,
+    Habilidades1ItemComponent,
   ],
   imports: [
     BrowserModule,
