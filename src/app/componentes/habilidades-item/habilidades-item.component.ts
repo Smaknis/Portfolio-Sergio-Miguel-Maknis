@@ -25,7 +25,9 @@ export class HabilidadesItemComponent implements OnInit {
   subscription?: Subscription;
 
   title:string = "";
-  score:string = "";
+  score:number = 0;
+
+  //sc: number = this.hard.score;
 
   constructor(private uiService: UiService
     ) {
