@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Job } from '../Job' 
+import { Job } from '../Job';
+import { Edu } from '../Edu' 
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -41,6 +42,21 @@ export class PortfolioService {
   updateEditJob(job:Job): Observable<Job>{
     const url = `${this.apiUrl}/editjob/${job.id_job}`
     return this.http.put<Job>(url, job, httpOptions)
+  }
+
+  agregarEdu(edu:Edu):Observable<Edu>{
+    const url = `${this.apiUrl}/newedu/edu`
+    return this.http.post<Edu>(url, edu, httpOptions)
+  }
+
+  onDeleteEdu(edu:Edu): Observable<Edu>{
+    const url = `${this.apiUrl}/deleteedu/${edu.id_education}`
+    return this.http.delete<Edu>(url)
+  }
+
+  editEdu(edu:Edu): Observable<Edu>{
+    const url = `${this.apiUrl}/editedu/${edu.id_education}`
+    return this.http.put<Edu>(url, edu, httpOptions)
   }
 
   /*

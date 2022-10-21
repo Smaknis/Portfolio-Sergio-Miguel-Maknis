@@ -16,7 +16,8 @@ import { AgregarExperienciaComponent } from './componentes/agregar-experiencia/a
 import { FormsModule } from '@angular/forms';
 import { BotonComponent } from './componentes/boton/boton.component';
 import { ExperienciaItemComponent } from './componentes/experiencia-item/experiencia-item.component';
-import { EditarExperienciaComponent } from './componentes/editar-experiencia/editar-experiencia.component';
+import { EducacionItemComponent } from './componentes/educacion-item/educacion-item.component';
+import { RecargaDirective } from './directives/recarga.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditarExperienciaComponent } from './componentes/editar-experiencia/edi
     AgregarExperienciaComponent,
     BotonComponent,
     ExperienciaItemComponent,
-    EditarExperienciaComponent
+    EducacionItemComponent,
+    RecargaDirective,
   ],
   imports: [
     BrowserModule,

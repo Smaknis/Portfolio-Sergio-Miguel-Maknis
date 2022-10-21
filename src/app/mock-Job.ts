@@ -1,4 +1,5 @@
 import {Job} from "./Job"
+import {Edu} from "./Edu"
 
 export const JOBS: Job[] = [
    /*{
@@ -15,3 +16,5 @@ export const JOBS: Job[] = [
 
     }*/
 ]
+
+export const EDU: Edu[] = []
