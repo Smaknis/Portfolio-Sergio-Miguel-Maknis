@@ -4,6 +4,7 @@
       <div class="card bg-light mb-3" style="max-width: 60rem">
         <div class="card-header"><h4>Hard Skills & Soft Skills</h4></div>
         <div class="card-body">
+          <h5 class="card-title">Hard</h5>
           <app-habilidades-item
           actualizarComponente="recargarComponente"
           *ngFor="let hard of hardList"
@@ -13,6 +14,7 @@
           (onEditarHab)="editarHard(hard)"
           >
         </app-habilidades-item>
+        <h5 class="card-title">Soft</h5>
         <app-habilidades1-item
         *ngFor="let soft of softList"
         [soft] = "soft"
