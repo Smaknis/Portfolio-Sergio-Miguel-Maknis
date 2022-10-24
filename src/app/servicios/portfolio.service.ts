@@ -2,7 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Job } from '../Job';
-import { Edu } from '../Edu' 
+import { Edu } from '../Edu'; 
+import { Hard } from '../Hard'; 
+import { Soft } from '../Soft'; 
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -58,6 +60,17 @@ export class PortfolioService {
     const url = `${this.apiUrl}/editedu/${edu.id_education}`
     return this.http.put<Edu>(url, edu, httpOptions)
   }
+
+  onDeleteHard(hard:Hard): Observable<Hard>{
+    const url = `${this.apiUrl}/deletehard/${hard.id_hard}`
+    return this.http.delete<Hard>(url)
+  }
+
+  onDeleteSoft(soft:Soft): Observable<Soft>{
+    const url = `${this.apiUrl}/deletesoft/${soft.id_soft}`
+    return this.http.delete<Soft>(url)
+  }
+
 
   /*
 
