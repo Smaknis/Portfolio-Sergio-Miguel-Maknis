@@ -4,24 +4,41 @@
       <div class="card bg-light mb-3" style="max-width: 60rem">
         <div class="card-header"><h4>Hard Skills & Soft Skills</h4></div>
         <div class="card-body">
-          <h5 class="card-title">Hard</h5>
+          <h5 class="card-title">
+            Hard
+            <fa-icon
+              class="btn"
+              [icon]="faPlus"
+              [ngStyle]="{ color: 'black' }"
+              (click)="switchFormularioHard()"
+            ></fa-icon>
+          </h5>
           <app-habilidades-item
-          actualizarComponente="recargarComponente"
-          *ngFor="let hard of hardList"
-          [hard] = "hard"
-          (onDeleteHab)="deleteHard(hard)"
-          (onEditHab)="editHard(hard)"
-          (onEditarHab)="editarHard(hard)"
+            actualizarComponente="recargarComponente"
+            *ngFor="let hard of hardList"
+            [hard]="hard"
+            (onDeleteHard)="deleteHard(hard)"
+            (onEditHard)="editHard(hard)"
+            (onEditarHard)="editarHard(hard)"
           >
-        </app-habilidades-item>
-        <h5 class="card-title">Soft</h5>
-        <app-habilidades1-item
-        *ngFor="let soft of softList"
-        [soft] = "soft"
-        (onDeleteHab)="deleteHard(soft)"
-        (onEditHab)="editHard(soft)"
-        (onEditarHab)="editarHard(soft)"
-        ></app-habilidades1-item>
+          </app-habilidades-item>
+          <h5 class="card-title">
+            Soft
+            <fa-icon
+              class="btn"
+              [icon]="faPlus"
+              [ngStyle]="{ color: 'black' }"
+              (click)="switchFormularioSoft()"
+            ></fa-icon>
+          </h5>
+          <app-habilidades1-item
+            *ngFor="let soft of softList"
+            [soft]="soft"
+            (onDeleteSoft)="deleteSoft(soft)"
+            (onEditSoft)="editSoft(soft)"
+            (onEditarSoft)="editarSoft(soft)"
+          ></app-habilidades1-item>
+        </div>
       </div>
     </div>
   </div>
