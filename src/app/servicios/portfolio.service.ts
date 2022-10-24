@@ -61,9 +61,19 @@ export class PortfolioService {
     return this.http.put<Edu>(url, edu, httpOptions)
   }
 
+  agregarHard(hard:Hard):Observable<Hard>{
+    const url = `${this.apiUrl}/newhard/hard`
+    return this.http.post<Hard>(url, hard, httpOptions)
+  }
+
   onDeleteHard(hard:Hard): Observable<Hard>{
     const url = `${this.apiUrl}/deletehard/${hard.id_hard}`
     return this.http.delete<Hard>(url)
+  }
+
+  agregarSoft(soft:Soft):Observable<Soft>{
+    const url = `${this.apiUrl}/newsoft/soft`
+    return this.http.post<Soft>(url, soft, httpOptions)
   }
 
   onDeleteSoft(soft:Soft): Observable<Soft>{
