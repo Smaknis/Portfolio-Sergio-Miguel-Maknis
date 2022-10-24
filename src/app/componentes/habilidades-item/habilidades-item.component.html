@@ -2,7 +2,6 @@
   <div class="bs-docs-section">
     <div class="col-lg-12">
       <div class="bs-component">
-        <h5 class="card-title">Hard</h5>
         <div class="card bg-light mb-3" style="max-width: 60rem">
           <ul>
             <div class="col-lg-12" style="max-width: 60rem">
@@ -21,9 +20,9 @@
               ></fa-icon>
               <div class="progress">
                 <div
-                  class="progress-bar bg-success"
+                  class="progress-bar progress-bar-striped bg-success"
                   role="progressbar"
-                  [style.width]= "hard.score+'%'"
+                  [style.width]="hard.score + '%'"
                   aria-valuenow="25"
                   aria-valuemin="0"
                   aria-valuemax="100"
