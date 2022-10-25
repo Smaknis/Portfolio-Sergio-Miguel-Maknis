@@ -4,6 +4,7 @@ import { Job } from '../Job';
 import { Edu } from '../Edu';
 import { Hard } from '../Hard';
 import { Soft } from '../Soft';  
+import { Pers } from '../Per';  
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,8 @@ export class UiService {
   private showAgregarSoft:boolean = false;
   private subject5 = new Subject<any>();
   private subjectS = new Subject<any>();
+  private showAgregarAc:boolean = false;
+  private subject6 = new Subject<any>();
   
   constructor() { }
 
@@ -85,5 +88,14 @@ export class UiService {
   switchExperienciaSoft(soft:Soft){
     this.edit = !this.edit;
     this.subjectS.next(this.edit);
+  };
+
+  switchFormularioAc(){
+    this.showAgregarAc = !this.showAgregarAc;
+    this.subject6.next(this.showAgregarAc);
+  }
+
+  onSwitchAc():Observable<any>{
+    return this.subject6.asObservable()
   };
 }
