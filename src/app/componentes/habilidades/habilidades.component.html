@@ -13,31 +13,114 @@
               (click)="switchFormularioHard()"
             ></fa-icon>
           </h5>
-          <app-habilidades-item
-            actualizarComponente="recargarComponente"
-            *ngFor="let hard of hardList"
-            [hard]="hard"
-            (onDeleteHard)="deleteHard(hard)"
-            (onEditHard)="editHard(hard)"
-            (onEditarHard)="editarHard(hard)"
-          >
-          </app-habilidades-item>
-          <h5 class="card-title">
-            Soft
-            <fa-icon
-              class="btn"
-              [icon]="faPlus"
-              [ngStyle]="{ color: 'black' }"
-              (click)="switchFormularioSoft()"
-            ></fa-icon>
-          </h5>
-          <app-habilidades1-item
-            *ngFor="let soft of softList"
-            [soft]="soft"
-            (onDeleteSoft)="deleteSoft(soft)"
-            (onEditSoft)="editSoft(soft)"
-            (onEditarSoft)="editarSoft(soft)"
-          ></app-habilidades1-item>
+          <div class="form-group">
+            <form class="add-form" *ngIf="showAgregarHard">
+              <div class="form-control">
+                <label class="col-form-label col-form-label-sm" for="inputSmall"
+                  >Título:</label
+                >
+                <input
+                  class="form-control form-control-sm"
+                  type="text"
+                  name="title"
+                  id="inputSmall"
+                  placeholder="Agregue Título"
+                  [(ngModel)]="title"
+                />
+              </div>
+              <div class="form-control">
+                <label class="col-form-label col-form-label-sm" for="inputSmall"
+                  >Porcentaje Alcanzado:</label
+                >
+                <input
+                  class="form-control form-control-sm"
+                  type="text"
+                  name="score"
+                  id="inputSmall"
+                  placeholder="Agregue nivel alcanzado"
+                  [(ngModel)]="score"
+                />
+              </div>
+              <input
+                type="submit"
+                value="Guardar Hard Skill"
+                class="btn btn-primary"
+                (click)="onAddHard()"
+              />
+              <input
+                type="submit1"
+                value="Cerrar"
+                class="btn btn-primary"
+                (click)="switchFormularioHard()"
+              />
+            </form>
+            <app-habilidades-item
+              actualizarComponente="recargarComponente"
+              *ngFor="let hard of hardList"
+              [hard]="hard"
+              (onDeleteHard)="deleteHard(hard)"
+              (onEditHard)="editHard(hard)"
+              (onEditarHard)="editarHard(hard)"
+            >
+            </app-habilidades-item>
+            <h5 class="card-title">
+              Soft
+              <fa-icon
+                class="btn"
+                [icon]="faPlus"
+                [ngStyle]="{ color: 'black' }"
+                (click)="switchFormularioSoft()"
+              ></fa-icon>
+            </h5>
+            <div class="form-group">
+              <form class="add-form" *ngIf="showAgregarSoft">
+                <div class="form-control">
+                  <label class="col-form-label col-form-label-sm" for="inputSmall"
+                    >Título:</label
+                  >
+                  <input
+                    class="form-control form-control-sm"
+                    type="text"
+                    name="title"
+                    id="inputSmall"
+                    placeholder="Agregue Título"
+                    [(ngModel)]="title"
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="col-form-label col-form-label-sm" for="inputSmall"
+                    >Porcentaje Alcanzado:</label
+                  >
+                  <input
+                    class="form-control form-control-sm"
+                    type="text"
+                    name="score"
+                    id="inputSmall"
+                    placeholder="Agregue nivel alcanzado"
+                    [(ngModel)]="score"
+                  />
+                </div>
+                <input
+                  type="submit"
+                  value="Guardar Soft Skill"
+                  class="btn btn-primary"
+                  (click)="onAddSoft()"
+                />
+                <input
+                  type="submit1"
+                  value="Cerrar"
+                  class="btn btn-primary"
+                  (click)="switchFormularioSoft()"
+                />
+              </form>
+            <app-habilidades1-item
+              *ngFor="let soft of softList"
+              [soft]="soft"
+              (onDeleteSoft)="deleteSoft(soft)"
+              (onEditSoft)="editSoft(soft)"
+              (onEditarSoft)="editarSoft(soft)"
+            ></app-habilidades1-item>
+          </div>
         </div>
       </div>
     </div>

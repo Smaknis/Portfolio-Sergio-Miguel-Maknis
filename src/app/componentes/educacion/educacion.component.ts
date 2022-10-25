@@ -30,11 +30,12 @@ export class EducacionComponent implements OnInit {
   edit:boolean = false;
   subscription?: Subscription;
 
-  recargarComponente : any;
+  recargarComponente: any;
 
   constructor(
     private portfolioService: PortfolioService, 
-    private datosPortfolio: PortfolioService, private uiService: UiService,) {
+    private datosPortfolio: PortfolioService, 
+    private uiService: UiService) {
     this.subscription = this.uiService.onSwitchEd()
       .subscribe(value=>this.showAgregarEd = value)
    }
@@ -122,6 +123,5 @@ export class EducacionComponent implements OnInit {
       this.educationList=data.education;
     })
   }
-
 
 }
