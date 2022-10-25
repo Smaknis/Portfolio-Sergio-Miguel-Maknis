@@ -28,13 +28,47 @@
                   aria-valuemax="100"
                 ></div>
               </div>
+              <div class="form-group">
+                <form class="add-form" *ngIf="soft.edit">
+                  <div class="form-control" contenteditable="true">
+                    <label
+                      class="col-form-label col-form-label-sm"
+                      for="inputSmall"
+                      >Título:</label
+                    >
+                    <input
+                      class="form-control form-control-sm"
+                      type="text"
+                      name="title"
+                      id="inputSmall"
+                      placeholder="{{ this.soft.title }}"
+                      [(ngModel)]="title"
+                    />
+                  </div>
+                  <div class="form-control">
+                    <label
+                      class="col-form-label col-form-label-sm"
+                      for="inputSmall"
+                      >Grado de avance:</label
+                    >
+                    <input
+                      class="form-control form-control-sm"
+                      type="text"
+                      name="score"
+                      id="inputSmall"
+                      placeholder="{{ this.soft.score }}"
+                      [(ngModel)]="score"
+                    />
+                  </div>
+                  <button class="btn btn-primary" (click)="onGuardarSoft(soft)">
+                    Guardar
+                  </button>
+                  <button class="btn btn-primary" (click)="onEditS(soft)">
+                    Cerrar
+                  </button>
+                </form>
+              </div>
             </div>
-            <!--<div class="col-lg-2 col-sm-6">
-      <div class="icon">
-        <canvas id="miCanvas" width="120" height="60">prueba</canvas>
-        Cash Flow - 90%
-      </div>
-    </div>-->
           </ul>
         </div>
       </div>

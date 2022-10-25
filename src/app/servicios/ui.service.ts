@@ -18,8 +18,10 @@ export class UiService {
   private subject3 = new Subject<any>();
   private showAgregarHard:boolean = false;
   private subject4 = new Subject<any>();
+  private subjectH = new Subject<any>();
   private showAgregarSoft:boolean = false;
   private subject5 = new Subject<any>();
+  private subjectS = new Subject<any>();
   
   constructor() { }
 
@@ -66,6 +68,11 @@ export class UiService {
     return this.subject4.asObservable();
   };
 
+  switchExperienciaHard(hard:Hard){
+    this.edit = !this.edit;
+    this.subjectH.next(this.edit);
+  };
+
   switchSoft():void{
     this.showAgregarSoft = !this.showAgregarSoft;
     this.subject5.next(this.showAgregarSoft);
@@ -75,4 +82,8 @@ export class UiService {
     return this.subject5.asObservable();
   };
 
+  switchExperienciaSoft(soft:Soft){
+    this.edit = !this.edit;
+    this.subjectS.next(this.edit);
+  };
 }

@@ -33,6 +33,7 @@ export class HabilidadesComponent implements OnInit {
 
   constructor(
     private datosPortfolio:PortfolioService,
+    private portfolioService:PortfolioService,
     private uiService: UiService) {
     this.subscription = this.uiService.onSwitchHard()
       .subscribe(value=>this.showAgregarHard = value),
@@ -52,11 +53,11 @@ export class HabilidadesComponent implements OnInit {
 
   switchFormularioHard(){
     this.uiService.switchHard();
-  };
+  }
 
   switchFormularioSoft(){
     this.uiService.switchSoft();
-  };
+  }
 
   onAddHard(){
     if(this.title.length === 0){
@@ -91,11 +92,20 @@ export class HabilidadesComponent implements OnInit {
       this.hardList = this.hardList.filter( (h) =>{
         return h.id_hard !== hard.id_hard}) 
     ))
-  };
+  }
 
-  editHard(hard:Hard){};
+  editHard(hard:Hard){
+    hard.edit = !hard.edit;
+    this.portfolioService.editHard(hard).subscribe();
+    this.uiService.switchExperienciaHard(hard);
+  }
 
-  editarHard(hard:Hard){};
+  editarHard(hard:Hard){
+    this.portfolioService.editHard(hard).subscribe();
+    this.editHard(hard);
+    this.actualizarComponenteH();
+    console.log(hard)
+  }
 
     deleteSoft(soft:Soft){    
     this.datosPortfolio.onDeleteSoft(soft)
@@ -103,11 +113,20 @@ export class HabilidadesComponent implements OnInit {
       this.softList = this.softList.filter( (s) =>{
         return s.id_soft !== soft.id_soft}) 
     ))
-  };
+  }
 
-  editSoft(soft:Soft){};
+  editSoft(soft:Soft){   
+    soft.edit = !soft.edit;
+    this.portfolioService.editSoft(soft).subscribe();
+    this.uiService.switchExperienciaSoft(soft);
+  }
 
-  editarSoft(soft:Soft){};
+  editarSoft(soft:Soft){    
+    this.portfolioService.editSoft(soft).subscribe();
+    this.editSoft(soft);
+    this.actualizarComponenteS();
+    console.log(soft)
+  }
 
   onAddSoft(){
     if(this.title.length === 0){
@@ -136,5 +155,15 @@ export class HabilidadesComponent implements OnInit {
     ));
   }
 
+  actualizarComponenteH(){
+    this.recargarComponente=this.datosPortfolio.obtenerDatos().subscribe(data =>{
+      this.hardList=data.hardSkills;
+    })
+  }
 
+  actualizarComponenteS(){
+    this.recargarComponente=this.datosPortfolio.obtenerDatos().subscribe(data =>{
+      this.softList=data.softSkills;
+    })
+  }
 }
