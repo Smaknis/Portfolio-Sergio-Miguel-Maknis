@@ -14,6 +14,7 @@ export class HabilidadesItemComponent implements OnInit {
 
   @Output() onDeleteHard: EventEmitter<Hard> = new EventEmitter();
   @Output() onEditHard: EventEmitter<Hard> = new EventEmitter();
+  @Output() onEditarHard: EventEmitter<Hard> = new EventEmitter();
   @Input() hard: Hard = HARD[0]
 
 
@@ -48,4 +49,15 @@ export class HabilidadesItemComponent implements OnInit {
     this.onEditHard.emit(hard);
   }
 
+  onGuardarHard(hard:Hard){
+    const ha = {
+      personId: this.hard.personId,
+      title: this.title,
+      score: this.score,
+      edit: this.hard.edit,
+      id_hard: this.hard.id_hard,
+      }
+    this.onEditarHard.emit(ha);
+    return
+  }
 }

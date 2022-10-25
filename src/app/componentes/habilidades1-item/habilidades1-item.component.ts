@@ -14,7 +14,7 @@ export class Habilidades1ItemComponent implements OnInit {
 
   @Output() onDeleteSoft: EventEmitter<Soft> = new EventEmitter();
   @Output() onEditSoft: EventEmitter<Soft> = new EventEmitter();
-
+  @Output() onEditarSoft: EventEmitter<Soft> = new EventEmitter();
   @Input() soft: Soft = SOFT[0]
 
 
@@ -45,6 +45,18 @@ export class Habilidades1ItemComponent implements OnInit {
     this.title=this.soft.title
     this.score=this.soft.score
     this.onEditSoft.emit(soft);
+  }
+
+  onGuardarSoft(soft:Soft){
+    const so = {
+      personId: this.soft.personId,
+      title: this.title,
+      score: this.score,
+      edit: this.soft.edit,
+      id_soft: this.soft.id_soft,
+      }
+    this.onEditarSoft.emit(so);
+    return
   }
 
 }

@@ -81,20 +81,16 @@ export class PortfolioService {
     return this.http.delete<Soft>(url)
   }
 
-
-  /*
-
-  updateExperiencia(job:Job): Observable<Job>{
-    const url = `${this.apiUrlj}/${experiencia.id}`
-    return this.http.put<Job>(apiUrlj, job, httpOptions);
+  editHard(hard:Hard): Observable<Hard>{
+    const url = `${this.apiUrl}/edithard/${hard.id_hard}`
+    return this.http.put<Hard>(url, hard, httpOptions)
   }
 
-  addExperiencia(task:Task): Observable<Task>{
-    return this.http.post<Task>(this.apiUrl, task, httpOptions)
-
+  editSoft(soft:Soft): Observable<Soft>{
+    const url = `${this.apiUrl}/editsoft/${soft.id_soft}`
+    return this.http.put<Soft>(url, soft, httpOptions)
   }
 
-*/
 
 }
 
