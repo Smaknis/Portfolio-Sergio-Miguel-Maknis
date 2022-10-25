@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { UiService } from 'src/app/servicios/ui.service';
-import { faPlus, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { Edu } from '../../Edu' 
 
@@ -13,10 +13,8 @@ import { Edu } from '../../Edu'
 export class EducacionComponent implements OnInit {
 
   educationList: Edu[] = [];
-  
-  faEdit = faEdit;
+
   faPlus = faPlus;
-  faTrashAlt = faTrashAlt;
 
   showAgregarEd: boolean = false;
   id: number = 0;
