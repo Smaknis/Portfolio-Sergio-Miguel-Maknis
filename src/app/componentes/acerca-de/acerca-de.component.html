@@ -14,13 +14,13 @@
             class="btn"
             [icon]="faEdit"
             [ngStyle]="{ color: 'black' }"
-            (click)="onEdit()"
+            (click)="onSwitchFormularioAcer()"
           ></fa-icon>
           <fa-icon
             class="btn"
             [icon]="faTrashAlt"
             [ngStyle]="{ color: 'black' }"
-            (click)="onDelete()"
+            (click)="onDeleteAc(pers)"
           ></fa-icon>
           <form class="add-form" *ngIf="showAgregarAc">
             <div class="form-control">
@@ -51,9 +51,9 @@
             </div>
             <input
               type="submit"
-              value="Guardar Educación"
+              value="Guardar Acerca de"
               class="btn btn-primary"
-              (click)="onAddAc()"
+              (click)="onAddAc(pers)"
             />
             <input
               type="submit1"
@@ -66,6 +66,40 @@
         <p class="lead">
           {{ miPortfolio.person.about1 }}<br />{{ miPortfolio.person.about2 }}
         </p>
+      </div>
+      <div class="form-group">
+        <form class="add-form" *ngIf="showEditAc">
+          <div class="form-control" contenteditable="true">
+            <label class="col-form-label col-form-label-sm" for="inputSmall"
+              >Título 1:</label
+            >
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              name="about1"
+              id="inputSmall"
+              placeholder="{{ this.miPortfolio.person.about1 }}"
+              [(ngModel)]="about1"
+            />
+          </div>
+          <div class="form-control">
+            <label class="col-form-label col-form-label-sm" for="inputSmall"
+              >Título 2:</label
+            >
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              name="about2"
+              id="inputSmall"
+              placeholder="{{ this.miPortfolio.person.about2 }}"
+              [(ngModel)]="about2"
+            />
+          </div>
+          <button class="btn btn-primary" (click)="editAc(pers)">Guardar</button>
+          <button class="btn btn-primary" (click)="onSwitchFormularioAcer()">
+            Cerrar
+          </button>
+        </form>
       </div>
     </div>
   </div>

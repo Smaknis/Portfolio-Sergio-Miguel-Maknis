@@ -50,12 +50,12 @@ export class ExperienciaItemComponent implements OnInit {
 
   onEdit(job: Job){
     this.position=this.job.position;
-    this.company=this.job.company
-    this.journal_type=this.job.journal_type
-    this.date_start=this.job.date_start
-    this.date_end=this.job.date_end
-    this.location_job=this.job.location_job
-    this.url_logo_job=this.job.url_logo_job
+    this.company=this.job.company;
+    this.journal_type=this.job.journal_type;
+    this.date_start=this.job.date_start;
+    this.date_end=this.job.date_end;
+    this.location_job=this.job.location_job;
+    this.url_logo_job=this.job.url_logo_job;
     this.onEditJob.emit(job);
   }
 

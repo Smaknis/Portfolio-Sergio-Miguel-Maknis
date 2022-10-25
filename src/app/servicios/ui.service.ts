@@ -25,7 +25,7 @@ export class UiService {
   private subjectS = new Subject<any>();
   private showAgregarAc:boolean = false;
   private subject6 = new Subject<any>();
-  
+   
   constructor() { }
 
   switchExperiencia():void{
@@ -98,4 +98,6 @@ export class UiService {
   onSwitchAc():Observable<any>{
     return this.subject6.asObservable()
   };
+
+
 }
