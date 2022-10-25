@@ -21,6 +21,7 @@ import { RecargaDirective } from './directives/recarga.directive';
 import { HabilidadesItemComponent } from './componentes/habilidades-item/habilidades-item.component';
 import { Habilidades1ItemComponent } from './componentes/habilidades1-item/habilidades1-item.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { Habilidades1ItemComponent } from './componentes/habilidades1-item/habil
     RecargaDirective,
     HabilidadesItemComponent,
     Habilidades1ItemComponent,
+
   ],
   imports: [
     BrowserModule,

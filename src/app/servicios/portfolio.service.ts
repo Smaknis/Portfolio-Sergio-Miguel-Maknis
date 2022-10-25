@@ -5,6 +5,7 @@ import { Job } from '../Job';
 import { Edu } from '../Edu'; 
 import { Hard } from '../Hard'; 
 import { Soft } from '../Soft'; 
+import { Pers } from '../Per'; 
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -91,7 +92,11 @@ export class PortfolioService {
     return this.http.put<Soft>(url, soft, httpOptions)
   }
 
-
+  editarPerson(pers:Pers): Observable<Pers>{
+    const url = `${this.apiUrl}/edit/person/${pers.id}`
+    return this.http.put<Pers>(url, pers, httpOptions)
+    
+  }
 }
 
 //  /assets/data/data.json > json original

@@ -99,7 +99,6 @@ export class EducacionComponent implements OnInit {
     edu.edit = !edu.edit;
     this.portfolioService.editEdu(edu).subscribe();
     this.uiService.switchExperienciaEdu(edu);
-    
   }
 
   editarEdu(edu:Edu){

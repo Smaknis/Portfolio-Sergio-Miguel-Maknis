@@ -2,8 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faEdit, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
-import { Edu } from '../../Edu' 
-import { EDU } from '../../mock-Job'
+import { Edu } from '../../Edu'; 
+import { EDU } from '../../mock-Job';
 
 @Component({
   selector: 'app-educacion-item',
