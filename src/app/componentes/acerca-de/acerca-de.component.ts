@@ -68,10 +68,10 @@ export class AcercaDeComponent implements OnInit {
 
   switchFormularioAc(){
     if(this.miPortfolio.person.about1===""){
-    this.uiService.switchFormularioAc()
+    this.uiService.switchFormularioPe()
     }
     if(this.miPortfolio.person.about1!==""){Swal.fire({
-        icon: 'error',
+        icon: 'warning',
         title: 'Oops...',
         text: 'El portfolio ya cuenta con información "Acerca de ", si quiere modificarla puede editar con el boton lápiz',
       })

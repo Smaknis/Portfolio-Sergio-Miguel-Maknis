@@ -25,6 +25,8 @@ export class UiService {
   private subjectS = new Subject<any>();
   private showAgregarAc:boolean = false;
   private subject6 = new Subject<any>();
+  private showAgregarPe:boolean = false;
+  private subject7 = new Subject<any>();
    
   constructor() { }
 
@@ -99,5 +101,13 @@ export class UiService {
     return this.subject6.asObservable()
   };
 
+  switchFormularioPe(){
+    this.showAgregarPe = !this.showAgregarPe;
+    this.subject7.next(this.showAgregarPe);
+  }
+
+  onSwitchPe():Observable<any>{
+    return this.subject7.asObservable()
+  };
 
 }
