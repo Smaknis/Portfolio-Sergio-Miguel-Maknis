@@ -75,7 +75,9 @@
             <div class="form-group">
               <form class="add-form" *ngIf="showAgregarSoft">
                 <div class="form-control">
-                  <label class="col-form-label col-form-label-sm" for="inputSmall"
+                  <label
+                    class="col-form-label col-form-label-sm"
+                    for="inputSmall"
                     >Título:</label
                   >
                   <input
@@ -88,7 +90,9 @@
                   />
                 </div>
                 <div class="form-control">
-                  <label class="col-form-label col-form-label-sm" for="inputSmall"
+                  <label
+                    class="col-form-label col-form-label-sm"
+                    for="inputSmall"
                     >Porcentaje Alcanzado:</label
                   >
                   <input
@@ -113,13 +117,14 @@
                   (click)="switchFormularioSoft()"
                 />
               </form>
-            <app-habilidades1-item
-              *ngFor="let soft of softList"
-              [soft]="soft"
-              (onDeleteSoft)="deleteSoft(soft)"
-              (onEditSoft)="editSoft(soft)"
-              (onEditarSoft)="editarSoft($event)"
-            ></app-habilidades1-item>
+              <app-habilidades1-item
+                *ngFor="let soft of softList"
+                [soft]="soft"
+                (onDeleteSoft)="deleteSoft(soft)"
+                (onEditSoft)="editSoft(soft)"
+                (onEditarSoft)="editarSoft($event)"
+              ></app-habilidades1-item>
+            </div>
           </div>
         </div>
       </div>

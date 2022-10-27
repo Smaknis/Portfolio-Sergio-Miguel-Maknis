@@ -1,97 +1,107 @@
 <div class="form-group">
-    <form 
-        class="add-form" 
-        (ngSubmit)="onSubmit()"
-        *ngIf="showAgregarExp"
-        >
-        <div class="form-control">
-            <label class="col-form-label col-form-label-sm" for="inputSmall">Posición:</label>
-            <input 
-                class="form-control form-control-sm" 
-                type="text" 
-                name="position" 
-                id="inputSmall" 
-                placeholder="Agregue puesto laboral"
-                [(ngModel)]="position"
-            >
-        </div>
-        <div class="form-control">
-            <label class="col-form-label col-form-label-sm" for="inputSmall">Empresa:</label>
-            <input 
-                class="form-control form-control-sm" 
-                type="text" 
-                name="company" 
-                id="inputSmall" 
-                placeholder="Agregue empresa"
-                [(ngModel)]="company"
-            >
-        </div>
-        <div class="form-control">
-            <label class="col-form-label col-form-label-sm" for="inputSmall">Tipo de Jornada:</label>
-            <input 
-                class="form-control form-control-sm" 
-                type="text" 
-                name="journal_type" 
-                id="inputSmall" 
-                placeholder="Agregue tipo de jornada (Full Time / Parcial / Freelancer)"
-                [(ngModel)]="journal_type"
-            >
-        </div>
-        <div class="form-control">
-            <label class="col-form-label col-form-label-sm" for="inputSmall">Fecha de Inicio:</label>
-            <input 
-                class="form-control form-control-sm" 
-                type="text" 
-                name="date_start" 
-                id="inputSmall" 
-                placeholder="Agregue fecha de inicio, formato largo Mes Año"
-                [(ngModel)]="date_start"
-            >
-        </div>
-        <div class="form-control">
-            <label class="col-form-label col-form-label-sm" for="inputSmall">Fecha de Finalización:</label>
-            <input 
-                class="form-control form-control-sm" 
-                type="text" 
-                name="date_end" 
-                id="inputSmall" 
-                placeholder="Agregue fecha finalización, formato largo Mes Año"
-                [(ngModel)]="date_end"
-            >
-        </div>
-        <div class="form-control">
-            <label class="col-form-label col-form-label-sm" for="inputSmall">Ubicación Laboral:</label>
-            <input 
-                class="form-control form-control-sm" 
-                type="text" 
-                name="location_job" 
-                id="inputSmall" 
-                placeholder="Agregue la ubicación de la empresa"
-                [(ngModel)]="location_job"
-            >
-        </div>
-        <div class="form-control" >
-            <label class="col-form-label col-form-label-sm" for="inputSmall">URL Logo Empresa:</label>
-            <input 
-                class="form-control form-control-sm" 
-                type="text" 
-                name="url_logo_job" 
-                id="inputSmall" 
-                placeholder="Agregue URL del logo de la empresa"
-                [(ngModel)]="url_logo_job"
-            >
-        </div>
-        <input 
-            type="submit" 
-            value="Guardar Experiencia" 
-            class="btn btn-primary"
-            (click)="onSubmit()"
-        >        
-        <input 
-            type="submit1" 
-            value="Cerrar" 
-            class="btn btn-primary"
-            (click)="switchFormulario()"
-        >    
-    </form>
+  <form class="add-form" (ngSubmit)="onSubmit()" *ngIf="showAgregarExp">
+    <div class="form-control">
+      <label class="col-form-label col-form-label-sm" for="inputSmall"
+        >Posición:</label
+      >
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        name="position"
+        id="inputSmall"
+        placeholder="Agregue puesto laboral"
+        [(ngModel)]="position"
+      />
+    </div>
+    <div class="form-control">
+      <label class="col-form-label col-form-label-sm" for="inputSmall"
+        >Empresa:</label
+      >
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        name="company"
+        id="inputSmall"
+        placeholder="Agregue empresa"
+        [(ngModel)]="company"
+      />
+    </div>
+    <div class="form-control">
+      <label class="col-form-label col-form-label-sm" for="inputSmall"
+        >Tipo de Jornada:</label
+      >
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        name="journal_type"
+        id="inputSmall"
+        placeholder="Agregue tipo de jornada (Full Time / Parcial / Freelancer)"
+        [(ngModel)]="journal_type"
+      />
+    </div>
+    <div class="form-control">
+      <label class="col-form-label col-form-label-sm" for="inputSmall"
+        >Fecha de Inicio:</label
+      >
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        name="date_start"
+        id="inputSmall"
+        placeholder="Agregue fecha de inicio, formato largo Mes Año"
+        [(ngModel)]="date_start"
+      />
+    </div>
+    <div class="form-control">
+      <label class="col-form-label col-form-label-sm" for="inputSmall"
+        >Fecha de Finalización:</label
+      >
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        name="date_end"
+        id="inputSmall"
+        placeholder="Agregue fecha finalización, formato largo Mes Año"
+        [(ngModel)]="date_end"
+      />
+    </div>
+    <div class="form-control">
+      <label class="col-form-label col-form-label-sm" for="inputSmall"
+        >Ubicación Laboral:</label
+      >
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        name="location_job"
+        id="inputSmall"
+        placeholder="Agregue la ubicación de la empresa"
+        [(ngModel)]="location_job"
+      />
+    </div>
+    <div class="form-control">
+      <label class="col-form-label col-form-label-sm" for="inputSmall"
+        >URL Logo Empresa:</label
+      >
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        name="url_logo_job"
+        id="inputSmall"
+        placeholder="Agregue URL del logo de la empresa"
+        [(ngModel)]="url_logo_job"
+      />
+    </div>
+    <input
+      type="submit"
+      value="Guardar Experiencia"
+      class="btn btn-primary"
+      (click)="onSubmit()"
+    />
+    <input
+      type="submit1"
+      value="Cerrar"
+      class="btn btn-primary"
+      (click)="switchFormulario()"
+    />
+  </form>
 </div>
