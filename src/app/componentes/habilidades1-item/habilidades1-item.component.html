@@ -7,12 +7,14 @@
             <div class="col-lg-12" style="max-width: 60rem">
               {{ soft.title }} - {{ soft.score }}%
               <fa-icon
+                *ngIf="loginStatus"
                 class="btn"
                 [icon]="faEdit"
                 [ngStyle]="{ color: 'black' }"
                 (click)="onEditS(soft)"
               ></fa-icon>
               <fa-icon
+                *ngIf="loginStatus"
                 class="btn"
                 [icon]="faTrashAlt"
                 [ngStyle]="{ color: 'black' }"

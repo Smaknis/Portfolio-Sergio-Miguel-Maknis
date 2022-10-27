@@ -73,6 +73,7 @@ export class PiePaginaComponent implements OnInit {
       edit: this.edit,
     }
     this.agregarPr(newProy);
+    location.reload()
     return
   }
 

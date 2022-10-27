@@ -25,6 +25,8 @@ export class Habilidades1ItemComponent implements OnInit {
   edit:boolean = false;
   subscription?: Subscription;
 
+  loginStatus:boolean = false;
+
   title:string = "";
   score:number = 0;
 
