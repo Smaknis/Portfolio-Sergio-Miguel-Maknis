@@ -110,7 +110,7 @@ export class AcercaDeComponent implements OnInit {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'No esta funcionando el refresh, presione F5 para actualizar!',
+      text: 'En "Proyectos" aplique un reload para recargar, es poco elegante pero funciona. Presione F5 para actualizar!',
     })
   }
 

@@ -91,7 +91,7 @@ export class EncabezadoComponent implements OnInit {
 
   switchFormularioPe(){
     if(this.miPortfolio.person.name===""){
-    this.uiService.switchFormularioAc()
+    this.uiService.switchFormularioPe()
     }
     if(this.miPortfolio.person.name!==""){Swal.fire({
         icon: 'warning',
@@ -138,7 +138,7 @@ export class EncabezadoComponent implements OnInit {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'No esta funcionando el refresh, presione F5 para actualizar!',
+      text: 'No encontre la forma de recargar el componente, presione F5 para actualizar!',
     })
   }
 

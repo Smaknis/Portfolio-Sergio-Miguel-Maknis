@@ -12,8 +12,8 @@ import { Subscription } from 'rxjs';
 })
 export class ExperienciaItemComponent implements OnInit {
   @Input() job: Job = JOBS[0]
-  @Output() onDeleteJob: EventEmitter<Job> = new EventEmitter()
-  @Output() onEditJob: EventEmitter<Job> = new EventEmitter()
+  @Output() onDeleteJob: EventEmitter<Job> = new EventEmitter();
+  @Output() onEditJob: EventEmitter<Job> = new EventEmitter();
   @Output() onEditarExperiencia: EventEmitter<Job> = new EventEmitter();
   @Output() cerrar = new EventEmitter();
 
