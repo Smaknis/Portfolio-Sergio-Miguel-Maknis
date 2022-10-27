@@ -28,6 +28,8 @@ export class EducacionComponent implements OnInit {
   edit:boolean = false;
   subscription?: Subscription;
 
+  loginStatus:boolean = false;
+
   recargarComponente: any;
 
   constructor(
@@ -41,9 +43,8 @@ export class EducacionComponent implements OnInit {
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.educationList=data.education;
-    });
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.id=data.person.id;
+      this.loginStatus=data.person.loginStatus;
     });
   }
 

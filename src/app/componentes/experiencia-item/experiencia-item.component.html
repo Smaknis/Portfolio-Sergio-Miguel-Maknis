@@ -9,12 +9,14 @@
               <h5 class="card-title">
                 {{ job.position }}
                 <fa-icon
+                  *ngIf="loginStatus"
                   class="btn"
                   [icon]="faEdit"
                   [ngStyle]="{ color: 'black' }"
                   (click)="onEdit(job)"
                 ></fa-icon>
                 <fa-icon
+                  *ngIf="loginStatus"
                   class="btn"
                   [icon]="faTrashAlt"
                   [ngStyle]="{ color: 'black' }"

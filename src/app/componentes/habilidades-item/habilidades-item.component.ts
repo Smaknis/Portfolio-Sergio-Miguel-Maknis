@@ -4,6 +4,7 @@ import { HARD } from '../../mock-Job';
 import { faEdit, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-habilidades-item',
@@ -25,18 +26,25 @@ export class HabilidadesItemComponent implements OnInit {
   edit:boolean = false;
   subscription?: Subscription;
 
+  loginStatus:boolean = false;
+
   title:string = "";
   score:number = 0;
 
   //sc: number = this.hard.score;
 
-  constructor(private uiService: UiService
+  constructor(
+    private datosPortfolio:PortfolioService,
+    private uiService: UiService
     ) {
       this.subscription = this.uiService.onSwitchE()
       .subscribe(value=>this.edit = value)
   }
   
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+      this.loginStatus=data.person.loginStatus;
+    });
   }
 
   onDeleteH(hard:Hard){

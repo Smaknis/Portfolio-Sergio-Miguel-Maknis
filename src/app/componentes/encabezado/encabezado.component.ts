@@ -41,6 +41,7 @@ export class EncabezadoComponent implements OnInit {
   email:string = "";
   birth_date:string = "";
   nationality:string = "";
+  loginStatus:boolean = false;
 
   subscription?: Subscription;
 
@@ -60,6 +61,7 @@ export class EncabezadoComponent implements OnInit {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       console.log(data);
       this.miPortfolio=data;
+      this.loginStatus=data.person.loginStatus;
     });
   }
 

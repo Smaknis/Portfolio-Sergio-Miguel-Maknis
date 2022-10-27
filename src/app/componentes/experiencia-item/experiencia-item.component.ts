@@ -4,6 +4,7 @@ import { Job } from '../../Job'
 import { JOBS } from '../../mock-Job'
 import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-experiencia-item',
@@ -34,14 +35,21 @@ export class ExperienciaItemComponent implements OnInit {
   location_job:string = "";
   url_logo_job:string = "";
   subscription?: Subscription;
+
+  loginStatus:boolean = false;
  
   constructor(
+    private datosPortfolio:PortfolioService,
     private uiService: UiService) {
       this.subscription = this.uiService.onSwitchE()
       .subscribe(value=>this.edit = value)
   }
   
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+      this.loginStatus=data.person.loginStatus;
+    });
+
   }
 
   onDelete(job: Job){

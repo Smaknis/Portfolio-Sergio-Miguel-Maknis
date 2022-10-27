@@ -14,6 +14,7 @@ export class ExperienciaLaboralComponent implements OnInit {
   jobsList: Job[] = [];
   showAgregarExp: boolean = false;
   subscription?: Subscription;
+  loginStatus:boolean = false;
 
   recargarComponente : any;
         
@@ -30,6 +31,7 @@ export class ExperienciaLaboralComponent implements OnInit {
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.jobsList=data.job;
+      this.loginStatus=data.person.loginStatus;
     });
   }
 

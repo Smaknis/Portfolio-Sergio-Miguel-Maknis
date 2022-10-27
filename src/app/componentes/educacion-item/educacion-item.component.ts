@@ -4,6 +4,7 @@ import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
 import { Edu } from '../../Edu'; 
 import { EDU } from '../../mock-Job';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-educacion-item',
@@ -34,7 +35,11 @@ export class EducacionItemComponent implements OnInit {
   url_logo_education:string = "";
   score: string = "";
 
-  constructor(private uiService: UiService
+  loginStatus:boolean = false;
+
+  constructor(
+    private datosPortfolio:PortfolioService,
+    private uiService: UiService
     ) {
       this.subscription = this.uiService.onSwitchE()
       .subscribe(value=>this.edit = value)
@@ -42,6 +47,9 @@ export class EducacionItemComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+      this.loginStatus=data.person.loginStatus;
+    });
   }
 
   onDelete(edu: Edu){

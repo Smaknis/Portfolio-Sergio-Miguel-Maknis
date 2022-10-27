@@ -41,6 +41,7 @@ export class AcercaDeComponent implements OnInit {
   email:string = "";;
   birth_date:string = "";;
   nationality:string = "";
+  loginStatus:boolean = false;
  
   subscription?: Subscription;
 
@@ -59,9 +60,8 @@ export class AcercaDeComponent implements OnInit {
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.miPortfolio=data;
-    });
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.acercaList=data.person;
+      this.loginStatus=data.person.loginStatus;
     });
 
   }

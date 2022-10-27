@@ -29,6 +29,8 @@ export class PiePaginaItemComponent implements OnInit {
   name:string = "";
   description:string = "";
 
+  loginStatus:boolean = false;
+
   constructor(
     private datosPortfolio: PortfolioService,
     private uiService: UiService) {
@@ -37,6 +39,9 @@ export class PiePaginaItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+      this.loginStatus=data.person.loginStatus;
+    });
   }
 
   onDelete(proy:Proy){

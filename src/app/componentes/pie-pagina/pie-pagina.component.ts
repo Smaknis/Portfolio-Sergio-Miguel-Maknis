@@ -29,6 +29,8 @@ export class PiePaginaComponent implements OnInit {
   showAgregarPr:boolean = false;
   showEditPr:boolean = false;
 
+  loginStatus:boolean = false;
+
   id: number = 0;
   personId:number = 0;
   name:string = "";
@@ -46,9 +48,8 @@ export class PiePaginaComponent implements OnInit {
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.proyectList=data.proyect;
-    });
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.id=data.person.id;
+      this.loginStatus=data.person.loginStatus;
     });
   }
 
