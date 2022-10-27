@@ -20,6 +20,7 @@ import { EducacionItemComponent } from './componentes/educacion-item/educacion-i
 import { RecargaDirective } from './directives/recarga.directive';
 import { HabilidadesItemComponent } from './componentes/habilidades-item/habilidades-item.component';
 import { Habilidades1ItemComponent } from './componentes/habilidades1-item/habilidades1-item.component';
+import { PiePaginaItemComponent } from './componentes/pie-pagina-item/pie-pagina-item.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { Habilidades1ItemComponent } from './componentes/habilidades1-item/habil
     RecargaDirective,
     HabilidadesItemComponent,
     Habilidades1ItemComponent,
+    PiePaginaItemComponent,
 
   ],
   imports: [

@@ -5,6 +5,7 @@ import { Edu } from '../Edu';
 import { Hard } from '../Hard';
 import { Soft } from '../Soft';  
 import { Pers } from '../Per';  
+import { Proy } from '../Proy';  
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,11 @@ export class UiService {
   private subject6 = new Subject<any>();
   private showAgregarPe:boolean = false;
   private subject7 = new Subject<any>();
-   
+  private showAgregarPr:boolean = false;
+  private subject8 = new Subject<any>();
+  private subject9 = new Subject<any>();
+  private subjectPr = new Subject<any>();
+
   constructor() { }
 
   switchExperiencia():void{
@@ -43,7 +48,6 @@ export class UiService {
   switchExperienciaE(job:Job){
     this.edit = !this.edit;
     this.subject1.next(this.edit);
-
   };
 
   onSwitchE():Observable<any>{
@@ -95,7 +99,7 @@ export class UiService {
   switchFormularioAc(){
     this.showAgregarAc = !this.showAgregarAc;
     this.subject6.next(this.showAgregarAc);
-  }
+  };
 
   onSwitchAc():Observable<any>{
     return this.subject6.asObservable()
@@ -104,10 +108,29 @@ export class UiService {
   switchFormularioPe(){
     this.showAgregarPe = !this.showAgregarPe;
     this.subject7.next(this.showAgregarPe);
-  }
+  };
 
   onSwitchPe():Observable<any>{
     return this.subject7.asObservable()
+  };
+
+  switchFormularioProy(proy:Proy){
+    this.showAgregarPr = !this.showAgregarPr;
+    this.subject8.next(this.showAgregarPr);
+  };
+
+  onSwitchPr():Observable<any>{
+    return this.subject8.asObservable()
+  };
+
+  switchFormularioPr(proy:Proy){
+    this.edit = !this.edit;
+    this.subject9.next(this.edit);
+  };
+
+  switchGuardarPr(proy:Proy){
+    this.edit = !this.edit;
+    this.subjectPr.next(this.edit);
   };
 
 }

@@ -112,13 +112,13 @@ export class EducacionComponent implements OnInit {
     .subscribe(()=>(
       this.educationList = this.educationList.filter( (e) =>{
         return e.id_education !== edu.id_education}) 
-    ))
+    ));
   }
 
   actualizarComponente(){
     this.recargarComponente=this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.educationList=data.education;
-    })
+    });
   }
 
 }

@@ -6,6 +6,7 @@ import { Edu } from '../Edu';
 import { Hard } from '../Hard'; 
 import { Soft } from '../Soft'; 
 import { Pers } from '../Per'; 
+import { Proy } from '../Proy'; 
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -95,7 +96,21 @@ export class PortfolioService {
   editarPerson(pers:Pers): Observable<Pers>{
     const url = `${this.apiUrl}/edit/person/${pers.id}`
     return this.http.put<Pers>(url, pers, httpOptions)
-    
+  }
+
+  agregarPr(proy:Proy):Observable<Proy>{
+    const url = `${this.apiUrl}/newproyect/proy`
+    return this.http.post<Proy>(url, proy, httpOptions)
+  }
+
+  updateEditPr(proy:Proy): Observable<Proy>{
+    const url = `${this.apiUrl}/editproy/${proy.id_proyect}`
+    return this.http.put<Proy>(url, proy, httpOptions)
+  }
+
+  onDeletePr(proy:Proy): Observable<Proy>{
+    const url = `${this.apiUrl}/deleteproy/${proy.id_proyect}`
+    return this.http.delete<Proy>(url)
   }
 }
 
