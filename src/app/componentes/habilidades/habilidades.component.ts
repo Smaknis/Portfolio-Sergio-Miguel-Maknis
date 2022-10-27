@@ -29,6 +29,8 @@ export class HabilidadesComponent implements OnInit {
   score:number = 0;
   edit:boolean = false;
 
+  loginStatus:boolean = false;
+
   recargarComponente: any;
 
   constructor(
@@ -45,9 +47,8 @@ export class HabilidadesComponent implements OnInit {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.hardList=data.hardSkills;
       this.softList=data.softSkills;
-    });
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.id=data.person.id;
+      this.loginStatus=data.person.loginStatus;
     });  
   }
 

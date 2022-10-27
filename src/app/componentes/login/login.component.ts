@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private datosPortfolio:PortfolioService, 
+    private portfolioService:PortfolioService,
     private formBuilder:FormBuilder) 
     {
     this.form=this.formBuilder.group(
@@ -41,6 +42,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {this.datosPortfolio.obtenerDatos().subscribe(data =>{
     this.loginEmail=data.person.email;
     this.loginPassword=data.person.password;
+    this.loginStatus=data.person.loginStatus;
+    this.miPortfolio=data.person;
   }); 
   }
 
@@ -66,10 +69,59 @@ export class LoginComponent implements OnInit {
       })}
     if(this.email===this.loginEmail && this.password===this.loginPassword){
       this.loginStatus=true;
+      const loginPersona = {
+        id: this.miPortfolio.id,
+        about1: this.miPortfolio.about1,
+        about2: this.miPortfolio.about2,
+        address: this.miPortfolio.address,
+        back_image: this.miPortfolio.back_image,
+        last_name: this.miPortfolio.last_name,
+        name: this.miPortfolio.name,
+        location: this.miPortfolio.location,
+        nationality: this.miPortfolio.nationality,
+        phone: this.miPortfolio.phone,
+        position: this.miPortfolio.position,
+        title: this.miPortfolio.title,
+        url_image: this.miPortfolio.url_image,
+        email: this.miPortfolio.email,
+        password: this.miPortfolio.password,
+        birth_date: this.miPortfolio.birth_date, 
+        edit: this.miPortfolio.edit, 
+        loginStatus: this.loginStatus
+      }
+      this.portfolioService.editarPerson(loginPersona).subscribe();
+      location.reload()
     }
     //console.log(this.loginEmail);
     //console.log(this.loginPassword);
-    //console.log(this.loginStatus);
+    console.log(this.loginStatus);
     //this.onLogin.emit(login);
+  }
+
+  onLogout(){
+    this.loginStatus=false;
+      const loginPersona = {
+        id: this.miPortfolio.id,
+        about1: this.miPortfolio.about1,
+        about2: this.miPortfolio.about2,
+        address: this.miPortfolio.address,
+        back_image: this.miPortfolio.back_image,
+        last_name: this.miPortfolio.last_name,
+        name: this.miPortfolio.name,
+        location: this.miPortfolio.location,
+        nationality: this.miPortfolio.nationality,
+        phone: this.miPortfolio.phone,
+        position: this.miPortfolio.position,
+        title: this.miPortfolio.title,
+        url_image: this.miPortfolio.url_image,
+        email: this.miPortfolio.email,
+        password: this.miPortfolio.password,
+        birth_date: this.miPortfolio.birth_date, 
+        edit: this.miPortfolio.edit, 
+        loginStatus: this.loginStatus
+      }
+      this.portfolioService.editarPerson(loginPersona).subscribe();
+      location.reload()
+    
   }
 }

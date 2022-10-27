@@ -8,12 +8,14 @@
               <h5 class="card-title">
                 {{ proy.name }}
                 <fa-icon
+                  *ngIf="loginStatus"
                   class="btn"
                   [icon]="faEdit"
                   [ngStyle]="{ color: 'black' }"
                   (click)="onSwitchEdit(proy)"
                 ></fa-icon>
                 <fa-icon
+                  *ngIf="loginStatus"
                   class="btn"
                   [icon]="faTrashAlt"
                   [ngStyle]="{ color: 'black' }"

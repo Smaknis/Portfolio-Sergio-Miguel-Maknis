@@ -1,3 +1,4 @@
+<div *ngIf="!loginStatus">
 <li class="nav-item dropdown">
   <a
     class="nav-link dropdown-toggle"
@@ -72,3 +73,30 @@
     </form>
   </div>
 </li>
+</div>
+<div *ngIf="loginStatus">
+  <li class="nav-item dropdown">
+    <a
+      class="nav-link dropdown-toggle"
+      data-bs-toggle="dropdown"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false"
+      >Logout</a>
+    <div class="dropdown-menu" style="width: 302px; height: 238">
+      <form
+        [formGroup]="form"
+        style="padding-right: 5px; padding-left: 5px"
+        class="form-control-sm"
+      >
+      <div style="padding-top: 5px">
+        <button type="submit" class="btn btn-dark" (click)="onLogout()">
+          Salir
+        </button>
+      </div>
+      </form>
+    </div>
+  </li>
+
+  
+</div>

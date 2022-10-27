@@ -6,7 +6,8 @@
           <div class="card-header">
             <h4>
               Experiencia Laboral
-              <app-boton (botonClick)="switchFormulario()"> </app-boton>
+              <app-boton (botonClick)="switchFormulario()" *ngIf="loginStatus">
+              </app-boton>
               <app-agregar-experiencia
                 (onAgregarExperiencia)="agregarJob($event)"
               >
