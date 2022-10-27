@@ -1,0 +1,74 @@
+<li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    data-bs-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    >Login</a
+  >
+  <div class="dropdown-menu" style="width: 302px; height: 238">
+    <form
+      [formGroup]="form"
+      style="padding-right: 5px; padding-left: 5px"
+      class="form-control-sm"
+    >
+      <h5>Iniciar Sesión</h5>
+      <div class="form-group">
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': Email?.errors && Email?.touched,
+              'is-valid': !Email?.errors && Email?.touched
+            }"
+            id="floatingInput"
+            placeholder="name@example.com"
+            formControlName="email"
+            [(ngModel)]="email"
+          />
+          <label for="floatingInput">Email</label>
+          <div *ngIf="Email?.errors && Email?.touched">
+            <p *ngIf="Email?.hasError('required')" class="text-danger">
+              El email es requerido.
+            </p>
+            <p *ngIf="Email?.hasError('email')" class="text-danger">
+              El formato del email debe ser válido.
+            </p>
+          </div>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': Password?.errors && Password?.touched,
+              'is-valid': !Password?.errors && Password?.touched
+            }"
+            id="floatingPassword"
+            placeholder="Password"
+            formControlName="password"
+            [(ngModel)]="password"
+          />
+          <label for="floatingPassword">Password</label>
+          <div *ngIf="Password?.errors && Password?.touched">
+            <p *ngIf="Password?.hasError('required')" class="text-danger">
+              La contraseña es requerida.
+            </p>
+            <p *ngIf="Password?.errors?.['minlength']" class="text-danger">
+              La contraseña debe ser de al menos 8 caracteres.
+            </p>
+          </div>
+        </div>
+        <div style="padding-top: 5px">
+          <button type="submit" class="btn btn-dark" (click)="onLogin()">
+            Ingresar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</li>

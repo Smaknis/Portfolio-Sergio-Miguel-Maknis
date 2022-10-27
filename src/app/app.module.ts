@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
 import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
@@ -21,6 +20,7 @@ import { RecargaDirective } from './directives/recarga.directive';
 import { HabilidadesItemComponent } from './componentes/habilidades-item/habilidades-item.component';
 import { Habilidades1ItemComponent } from './componentes/habilidades1-item/habilidades1-item.component';
 import { PiePaginaItemComponent } from './componentes/pie-pagina-item/pie-pagina-item.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 
 @NgModule({
@@ -41,6 +41,7 @@ import { PiePaginaItemComponent } from './componentes/pie-pagina-item/pie-pagina
     HabilidadesItemComponent,
     Habilidades1ItemComponent,
     PiePaginaItemComponent,
+    LoginComponent,
 
   ],
   imports: [
