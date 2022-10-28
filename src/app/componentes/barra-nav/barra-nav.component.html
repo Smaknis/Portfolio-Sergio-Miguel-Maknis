@@ -2,11 +2,20 @@
   <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
     <div class="container">
       <img src="./assets/logo_arg_prog.jpg" />
-      <a
-        href="javascript:window.open('https://www.argentina.gob.ar/produccion/argentina-programa/segunda-etapa')"
-        class="navbar-brand"
-        >Argentina Programa - #YoProgramo.</a
-      >
+      <ul class="navbar-nav ms-md-auto">
+        <li class="nav-item">
+          <a
+            target="_blank"
+            rel="noopener"
+            class="nav-link"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="https://www.argentina.gob.ar/produccion/argentina-programa/segunda-etapa"
+            >Argentina Programa - #YoProgramo.</a
+          >
+        </li>
+      </ul>
       <button
         class="navbar-toggler"
         type="button"
@@ -30,25 +39,29 @@
               >Certificados</a
             >
             <div class="dropdown-menu">
-              <a
-                class="dropdown-item"
-                href="javascript:window.open('./assets/Certif Arg Prog Se Programar 2021.pdf','mywindowtitle','width=500,height=410')"
-                >#Sé Programar</a
-              >
-              <a
-                class="dropdown-item"
-                href="javascript:window.open('./assets/Libre Office Calc Avanzado - 2º Edición.pdf','mywindowtitle','width=500,height=410')"
-                >Libre Office Calc Avanzado</a
-              >
-              <a
-                class="dropdown-item"
-                href="javascript:window.open('./assets/G_C_Organizaciones.png','mywindowtitle','width=500,height=410')"
-                >Gestion del Cambio en Organizaciones</a
-              >
+              <a class="dropdown-item">#Sé Programar</a>
+              <a class="dropdown-item">Libre Office Calc Avanzado</a>
+              <a class="dropdown-item">Gestion del Cambio en Organizaciones</a>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Contacto</a
+            >
+            <div class="dropdown-menu">
+              <a
+                target="_blank"
+                rel="noopener"
+                class="nav-link"
+                href="https://ar.linkedin.com/in/sergio-miguel-maknis"
+                >Contáctese por LinkedIn</a
+              >
+            </div>
           </li>
         </ul>
         <ul class="navbar-nav ms-md-auto">
@@ -85,9 +98,7 @@
             </a>
           </li> -->
           <ul class="nav-item" style="width: 30px">
-            <app-login>
-              
-            </app-login>
+            <app-login> </app-login>
           </ul>
         </ul>
       </div>
