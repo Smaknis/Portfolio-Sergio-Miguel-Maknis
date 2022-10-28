@@ -4,6 +4,7 @@ import { SOFT } from '../../mock-Job';
 import { faEdit, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-habilidades1-item',
@@ -30,13 +31,18 @@ export class Habilidades1ItemComponent implements OnInit {
   title:string = "";
   score:number = 0;
 
-  constructor(private uiService: UiService
+  constructor(
+    private datosPortfolio:PortfolioService,
+    private uiService: UiService
     ) {
       this.subscription = this.uiService.onSwitchE()
       .subscribe(value=>this.edit = value)
   }
   
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+      this.loginStatus=data.person.loginStatus;
+    });
   }
 
   onDeleteS(soft:Soft){
@@ -58,6 +64,7 @@ export class Habilidades1ItemComponent implements OnInit {
       id_soft: this.soft.id_soft,
       }
     this.onEditarSoft.emit(so);
+    location.reload();
     return
   }
 

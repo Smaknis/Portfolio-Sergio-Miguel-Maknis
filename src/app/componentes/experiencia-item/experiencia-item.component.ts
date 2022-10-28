@@ -80,10 +80,10 @@ export class ExperienciaItemComponent implements OnInit {
       url_logo_job: this.url_logo_job,
       edit: this.job.edit,
       id_job: this.job.id_job
-
     }
     
     this.onEditarExperiencia.emit(job);
+    location.reload()
     return
   }
 

@@ -76,8 +76,8 @@ export class HabilidadesComponent implements OnInit {
       score: this.score,
       edit: this.edit,
     }
-    
     this.agregarHard(newHard);
+    location.reload();
     return
   }
 
@@ -105,7 +105,7 @@ export class HabilidadesComponent implements OnInit {
     this.portfolioService.editHard(hard).subscribe();
     this.editHard(hard);
     this.actualizarComponenteH();
-    console.log(hard)
+    location.reload();
   }
 
     deleteSoft(soft:Soft){    

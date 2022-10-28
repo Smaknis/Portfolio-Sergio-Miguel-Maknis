@@ -39,6 +39,7 @@ export class EncabezadoComponent implements OnInit {
   address:string = "";
   phone:string = "";
   email:string = "";
+  password:string = "";
   birth_date:string = "";
   nationality:string = "";
   loginStatus:boolean = false;
@@ -53,7 +54,7 @@ export class EncabezadoComponent implements OnInit {
     private datosPortfolio:PortfolioService,
     private portfolioService: PortfolioService,
     private uiService: UiService) {
-      this.subscription = this.uiService.onSwitchAc()
+      this.subscription = this.uiService.onSwitchPe()
         .subscribe(value=>this.showAgregarPe = value)
       }
 
@@ -81,13 +82,21 @@ export class EncabezadoComponent implements OnInit {
       title: this.title,
       url_image: this.url_image,
       email: this.miPortfolio.person.email,
+      password: this.miPortfolio.person.password,
+      loginStatus: this.loginStatus,
       birth_date: this.miPortfolio.person.birth_date, 
       edit: this.miPortfolio.person.edit, 
       
     }
     this.portfolioService.editarPerson(addAcerca).subscribe();
     this.switchFormularioPe();
-    console.log(addAcerca)
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Presione F5 para actualizar los cambios!',
+      showConfirmButton: false,
+      timer: 1000
+    });
     return  
   }
 
@@ -112,6 +121,8 @@ export class EncabezadoComponent implements OnInit {
     this.position = this.miPortfolio.person.position;
     this.title = this.miPortfolio.person.title;
     this.location = this.miPortfolio.person.location;
+    this.password = this.miPortfolio.person.password,
+    this.loginStatus = this.loginStatus
   }
 
   editPe(pers:Pers){
@@ -130,6 +141,8 @@ export class EncabezadoComponent implements OnInit {
       title: this.title,
       url_image: this.url_image,
       email: this.miPortfolio.person.email,
+      password: this.miPortfolio.person.password,
+      loginStatus: this.loginStatus,
       birth_date: this.miPortfolio.person.birth_date, 
       edit: this.miPortfolio.person.edit, 
       
@@ -160,6 +173,8 @@ export class EncabezadoComponent implements OnInit {
       title: "",
       url_image: "",
       email: this.miPortfolio.person.email,
+      password: this.miPortfolio.person.password,
+      loginStatus: this.loginStatus,
       birth_date: this.miPortfolio.person.birth_date, 
       edit: this.miPortfolio.person.edit, 
       

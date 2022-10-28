@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Edu } from '../../Edu'; 
 import { EDU } from '../../mock-Job';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-educacion-item',
@@ -77,9 +78,15 @@ export class EducacionItemComponent implements OnInit {
       edit: this.edu.edit,
       id_education: this.edu.id_education,
       score: this.score,
-
     }
     this.onEditarEdu.emit(edu);
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Presione F5 para actualizar los cambios!',
+      showConfirmButton: false,
+      timer: 1200
+    });
     return
   }
 

@@ -52,7 +52,7 @@ export class ExperienciaLaboralComponent implements OnInit {
     this.datosPortfolio.agregarJob(job).subscribe((job)=>(
     this.jobsList.push(job)
     ));
-      
+    location.reload()
   }
 
   editJob(job:Job){
@@ -65,7 +65,7 @@ export class ExperienciaLaboralComponent implements OnInit {
     this.portfolioService.editarJob(job).subscribe();
     this.editJob(job);
     this.actualizarComponente();
-  
+    location.reload()
 }
 
   actualizarComponente(){
