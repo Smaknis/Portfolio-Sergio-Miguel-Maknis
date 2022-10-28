@@ -66,6 +66,7 @@ export class HabilidadesItemComponent implements OnInit {
       id_hard: this.hard.id_hard,
       }
     this.onEditarHard.emit(ha);
+    location.reload();
     return
   }
 }

@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit {
         loginStatus: this.loginStatus
       }
       this.portfolioService.editarPerson(loginPersona).subscribe();
-      location.reload()
+      location.reload();
     }
     //console.log(this.loginEmail);
     //console.log(this.loginPassword);
@@ -121,7 +121,7 @@ export class LoginComponent implements OnInit {
         loginStatus: this.loginStatus
       }
       this.portfolioService.editarPerson(loginPersona).subscribe();
-      location.reload()
+      location.reload();
     
   }
 }

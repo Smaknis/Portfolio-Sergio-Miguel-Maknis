@@ -3,7 +3,8 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { UiService } from 'src/app/servicios/ui.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { Edu } from '../../Edu' 
+import { Edu } from '../../Edu';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-educacion',
@@ -85,8 +86,14 @@ export class EducacionComponent implements OnInit {
       url_logo_education: this.url_logo_education,
       edit: this.edit,
     }
-    
     this.agregarEdu(newEdu);
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Presione F5 para actualizar los cambios!',
+      showConfirmButton: false,
+      timer: 1200
+    });
     return
   }
 

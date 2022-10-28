@@ -68,7 +68,7 @@ export class AcercaDeComponent implements OnInit {
 
   switchFormularioAc(){
     if(this.miPortfolio.person.about1===""){
-    this.uiService.switchFormularioPe()
+    this.uiService.switchFormularioAc()
     }
     if(this.miPortfolio.person.about1!==""){Swal.fire({
         icon: 'warning',
@@ -100,6 +100,8 @@ export class AcercaDeComponent implements OnInit {
       title: this.miPortfolio.person.title,
       url_image: this.miPortfolio.person.url_image,
       email: this.miPortfolio.person.email,
+      password: this.miPortfolio.person.password,
+      loginStatus: this.loginStatus,
       birth_date: this.miPortfolio.person.birth_date, 
       edit: this.miPortfolio.person.edit, 
       
@@ -110,7 +112,7 @@ export class AcercaDeComponent implements OnInit {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'En "Proyectos" aplique un reload para recargar, es poco elegante pero funciona. Presione F5 para actualizar!',
+      text: 'No se pudo recargar. Presione F5 para actualizar! (es poco elegante pero funciona)',
     })
   }
 
@@ -130,6 +132,8 @@ export class AcercaDeComponent implements OnInit {
       title: this.miPortfolio.person.title,
       url_image: this.miPortfolio.person.url_image,
       email: this.miPortfolio.person.email,
+      password: this.miPortfolio.person.password,
+      loginStatus: this.loginStatus,
       birth_date: this.miPortfolio.person.birth_date, 
       edit: this.miPortfolio.person.edit, 
       
@@ -160,13 +164,21 @@ export class AcercaDeComponent implements OnInit {
       title: this.miPortfolio.person.title,
       url_image: this.miPortfolio.person.url_image,
       email: this.miPortfolio.person.email,
+      password: this.miPortfolio.person.password,
+      loginStatus: this.loginStatus,
       birth_date: this.miPortfolio.person.birth_date, 
       edit: this.miPortfolio.person.edit, 
       
     }
     this.portfolioService.editarPerson(addAcerca).subscribe();
     this.switchFormularioAc();
-    console.log(addAcerca)
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Presione F5 para actualizar los cambios!',
+      showConfirmButton: false,
+      timer: 1000
+    })
     return  
   }
 
