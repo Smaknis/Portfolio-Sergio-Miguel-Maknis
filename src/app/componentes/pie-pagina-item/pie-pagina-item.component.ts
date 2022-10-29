@@ -5,6 +5,8 @@ import { Proy } from '../../Proy';
 import { PROY } from '../../mock-Job';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pie-pagina-item',
@@ -21,6 +23,8 @@ export class PiePaginaItemComponent implements OnInit {
   edit:boolean = false;
   subscription?: Subscription;
 
+  form:FormGroup;
+
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
 
@@ -33,15 +37,29 @@ export class PiePaginaItemComponent implements OnInit {
 
   constructor(
     private datosPortfolio: PortfolioService,
+    private formBuilder:FormBuilder,
     private uiService: UiService) {
       this.subscription = this.uiService.onSwitchPr()
-      .subscribe(value=>this.edit = value)
+      .subscribe(value=>this.edit = value),
+      this.form=this.formBuilder.group(
+        {
+          name:['',[Validators.required,Validators.minLength(3)]],
+          description:['',[Validators.required,Validators.minLength(3)]]
+        });
   }
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.loginStatus=data.person.loginStatus;
     });
+  }
+
+  get Name(){
+    return this.form.get('name');
+  }
+
+  get Description(){
+    return this.form.get('description');
   }
 
   onDelete(proy:Proy){
@@ -55,6 +73,16 @@ export class PiePaginaItemComponent implements OnInit {
   }
 
   onGuardarEditPr(proy:Proy){
+
+    if(this.name.length === 0 ){
+      Swal.fire('Por favor agregue nombre del Proyecto')
+      return
+    }
+    if(this.description.length === 0){
+      Swal.fire('Por favor agregue descripción del Proyecto')
+      return
+    }
+    
     const p = {
       personId: this.proy.personId,
       name: this.name,

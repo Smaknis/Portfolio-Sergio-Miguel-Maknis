@@ -15,7 +15,7 @@
             ></fa-icon>
           </h5>
           <div class="form-group">
-            <form class="add-form" *ngIf="showAgregarHard">
+            <form class="add-form" *ngIf="showAgregarHard" [formGroup]="form">
               <div class="form-control">
                 <label class="col-form-label col-form-label-sm" for="inputSmall"
                   >Título:</label
@@ -27,6 +27,11 @@
                   id="inputSmall"
                   placeholder="Agregue Título"
                   [(ngModel)]="title"
+                  formControlName="title"
+                  [ngClass]="{
+                    'is-invalid': Title?.errors && Title?.touched,
+                    'is-valid': !Title?.errors && Title?.touched
+                  }"
                 />
               </div>
               <div class="form-control">
@@ -40,6 +45,11 @@
                   id="inputSmall"
                   placeholder="Agregue nivel alcanzado"
                   [(ngModel)]="score"
+                  formControlName="score"
+                  [ngClass]="{
+                    'is-invalid': Score?.errors && Score?.touched,
+                    'is-valid': !Score?.errors && Score?.touched
+                  }"
                 />
               </div>
               <input
@@ -75,7 +85,7 @@
               ></fa-icon>
             </h5>
             <div class="form-group">
-              <form class="add-form" *ngIf="showAgregarSoft">
+              <form class="add-form" *ngIf="showAgregarSoft" [formGroup]="form">
                 <div class="form-control">
                   <label
                     class="col-form-label col-form-label-sm"
@@ -89,6 +99,11 @@
                     id="inputSmall"
                     placeholder="Agregue Título"
                     [(ngModel)]="title"
+                    formControlName="title"
+                    [ngClass]="{
+                      'is-invalid': Title?.errors && Title?.touched,
+                      'is-valid': !Title?.errors && Title?.touched
+                    }"
                   />
                 </div>
                 <div class="form-control">
@@ -104,6 +119,11 @@
                     id="inputSmall"
                     placeholder="Agregue nivel alcanzado"
                     [(ngModel)]="score"
+                    formControlName="score"
+                    [ngClass]="{
+                      'is-invalid': Score?.errors && Score?.touched,
+                      'is-valid': !Score?.errors && Score?.touched
+                    }"
                   />
                 </div>
                 <input

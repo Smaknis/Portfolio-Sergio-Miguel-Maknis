@@ -5,6 +5,8 @@ import { Hard } from '../../Hab';
 import { Soft } from '../../Hab';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-habilidades',
@@ -17,6 +19,8 @@ export class HabilidadesComponent implements OnInit {
   softList: Soft[] = [];
 
   faPlus = faPlus;
+
+  form:FormGroup;
 
   showAgregarHard: boolean = false;
   showAgregarSoft: boolean = false;
@@ -36,11 +40,17 @@ export class HabilidadesComponent implements OnInit {
   constructor(
     private datosPortfolio:PortfolioService,
     private portfolioService:PortfolioService,
+    private formBuilder:FormBuilder,
     private uiService: UiService) {
     this.subscription = this.uiService.onSwitchHard()
       .subscribe(value=>this.showAgregarHard = value),
     this.subscription1 = this.uiService.onSwitchSoft()
-      .subscribe(value1=>this.showAgregarSoft = value1)  
+      .subscribe(value1=>this.showAgregarSoft = value1),
+    this.form=this.formBuilder.group(
+      {
+        title:['',[Validators.required,Validators.minLength(3)]],
+        score:['',[Validators.required, Validators.minLength(1)]],
+        }); 
    }
 
   ngOnInit(): void {
@@ -52,6 +62,14 @@ export class HabilidadesComponent implements OnInit {
     });  
   }
 
+  get Title(){
+    return this.form.get('title');
+  }
+
+  get Score(){
+    return this.form.get('score');
+  }
+
   switchFormularioHard(){
     this.uiService.switchHard();
   }
@@ -61,15 +79,16 @@ export class HabilidadesComponent implements OnInit {
   }
 
   onAddHard(){
-    if(this.title.length === 0){
-      alert("Por favor agregue un título")
+    if(this.title.length === 0 || this.score == 0){
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Debe completar todos los campos para guardar!',
+        showConfirmButton: false,
+        timer: 1400
+      });
       return
     }
-    if(this.score === 0){
-      alert("Por favor agregue nivel alcanzado")
-      return
-    }
-
     const newHard = {
       personId: this.id,
       title: this.title,
@@ -130,13 +149,15 @@ export class HabilidadesComponent implements OnInit {
   }
 
   onAddSoft(){
-    if(this.title.length === 0){
-      alert("Por favor agregue un título")
-      return
-    }
-    if(this.score === 0){
-      alert("Por favor agregue nivel alcanzado")
-      return
+    if(this.title.length === 0 || this.score == 0){
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Debe completar todos los campos para guardar!',
+      showConfirmButton: false,
+      timer: 1400
+    });
+    return
     }
 
     const newSoft = {
