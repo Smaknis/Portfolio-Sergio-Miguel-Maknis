@@ -97,7 +97,7 @@ export class AgregarExperienciaComponent implements OnInit {
           icon: 'warning',
           title: 'Debe completar todos los campos para guardar!',
           showConfirmButton: false,
-          timer: 1200
+          timer: 1400
         });
       return
     }

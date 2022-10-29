@@ -4,6 +4,7 @@ import { UiService } from 'src/app/servicios/ui.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { Edu } from '../../Edu';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,6 +17,8 @@ export class EducacionComponent implements OnInit {
   educationList: Edu[] = [];
 
   faPlus = faPlus;
+
+  form:FormGroup;
 
   showAgregarEd: boolean = false;
   id: number = 0;
@@ -36,9 +39,18 @@ export class EducacionComponent implements OnInit {
   constructor(
     private portfolioService: PortfolioService, 
     private datosPortfolio: PortfolioService, 
+    private formBuilder:FormBuilder,
     private uiService: UiService) {
-    this.subscription = this.uiService.onSwitchEd()
-      .subscribe(value=>this.showAgregarEd = value)
+      this.subscription = this.uiService.onSwitchEd()
+      .subscribe(value=>this.showAgregarEd = value),
+      this.form=this.formBuilder.group(
+        {
+          institute:['',[Validators.required,Validators.minLength(3)]],
+          title:['',[Validators.required, Validators.minLength(3)]],
+          year_start:['',[Validators.required, Validators.minLength(3)]],
+          year_end:['',[Validators.required, Validators.minLength(3)]],
+          url_logo_education:['',[Validators.required, Validators.minLength(3)]],
+      });
    }
 
   ngOnInit(): void {
@@ -49,30 +61,43 @@ export class EducacionComponent implements OnInit {
     });
   }
 
+  get Institute(){
+    return this.form.get('institute');
+  }
+
+  get Title(){
+    return this.form.get('title');
+  }
+
+  get YearStart(){
+    return this.form.get('year_start');
+  }
+
+  get YearEnd(){
+    return this.form.get('year_end');
+  }
+
+  get UrlLogoEducation(){
+    return this.form.get('url_logo_education');
+  }
+
   switchFormularioEd(){
     this.uiService.switchEducation();
   }
 
   onAddEd(){
-    if(this.institute.length === 0){
-      alert("Por favor agregue un instituto")
-      return
-    }
-    if(this.title.length === 0){
-      alert("Por favor agregue un título")
-      return
-    }
-    if(this.year_start.length === 0){
-      alert("Por favor agregue un año de inicio")
-      return
-    }
-    if(this.year_end.length === 0){
-      alert("Por favor agregue un año de fin")
-      return
-    }
-
-    if(this.url_logo_education.length === 0){
-      alert("Por favor agregue un url logo")
+    if(this.institute.length === 0 ||
+      this.title.length === 0 ||
+      this.year_start.length === 0 || 
+      this.year_end.length === 0 || 
+      this.url_logo_education.length === 0 ){
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Debe completar todos los campos para guardar!',
+          showConfirmButton: false,
+          timer: 1400
+        });
       return
     }
 

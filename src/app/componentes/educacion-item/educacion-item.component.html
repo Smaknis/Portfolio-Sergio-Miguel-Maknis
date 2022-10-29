@@ -30,7 +30,7 @@
             </div>
           </ul>
           <div class="form-group">
-            <form class="add-form" *ngIf="edu.edit">
+            <form class="add-form" *ngIf="edu.edit" [formGroup]="form">
               <div class="form-control" contenteditable="true">
                 <label class="col-form-label col-form-label-sm" for="inputSmall"
                   >Instituto:</label
@@ -42,6 +42,11 @@
                   id="inputSmall"
                   placeholder="{{ this.edu.institute }}"
                   [(ngModel)]="institute"
+                  formControlName="institute"
+                  [ngClass]="{
+                    'is-invalid': Institute?.errors && Institute?.touched,
+                    'is-valid': !Institute?.errors && Institute?.touched
+                  }"
                 />
               </div>
               <div class="form-control">
@@ -55,6 +60,11 @@
                   id="inputSmall"
                   placeholder="{{ this.edu.title }}"
                   [(ngModel)]="title"
+                  formControlName="title"
+                  [ngClass]="{
+                    'is-invalid': Title?.errors && Title?.touched,
+                    'is-valid': !Title?.errors && Title?.touched
+                  }"
                 />
               </div>
               <div class="form-control">
@@ -68,6 +78,11 @@
                   id="inputSmall"
                   placeholder="{{ this.edu.year_start }}"
                   [(ngModel)]="year_start"
+                  formControlName="year_start"
+                  [ngClass]="{
+                    'is-invalid': YearStart?.errors && YearStart?.touched,
+                    'is-valid': !YearStart?.errors && YearStart?.touched
+                  }"
                 />
               </div>
               <div class="form-control">
@@ -81,6 +96,11 @@
                   id="inputSmall"
                   placeholder="{{ this.edu.year_end }}"
                   [(ngModel)]="year_end"
+                  formControlName="year_end"
+                  [ngClass]="{
+                    'is-invalid': YearEnd?.errors && YearEnd?.touched,
+                    'is-valid': !YearEnd?.errors && YearEnd?.touched
+                  }"
                 />
               </div>
               <div class="form-control">
@@ -94,6 +114,11 @@
                   id="inputSmall"
                   placeholder="{{ this.edu.url_logo_education }}"
                   [(ngModel)]="url_logo_education"
+                  formControlName="url_logo_education"
+                  [ngClass]="{
+                    'is-invalid': UrlLogoEducation?.errors && UrlLogoEducation?.touched,
+                    'is-valid': !UrlLogoEducation?.errors && UrlLogoEducation?.touched
+                  }"
                 />
               </div>
               <button class="btn btn-primary" (click)="onGuardarEdu(edu)">
