@@ -20,7 +20,7 @@ export class ExperienciaItemComponent implements OnInit {
   @Output() onEditarExperiencia: EventEmitter<Job> = new EventEmitter();
   @Output() cerrar = new EventEmitter();
 
-  form:FormGroup
+  form:FormGroup;
 
   faEdit = faEdit;
   faPlus = faPlus;
@@ -123,7 +123,7 @@ export class ExperienciaItemComponent implements OnInit {
           icon: 'warning',
           title: 'Debe completar todos los campos para guardar!',
           showConfirmButton: false,
-          timer: 1200
+          timer: 1400
         });
       return
     }

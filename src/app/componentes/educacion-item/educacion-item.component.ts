@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Edu } from '../../Edu'; 
 import { EDU } from '../../mock-Job';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -23,6 +24,8 @@ export class EducacionItemComponent implements OnInit {
   faPlus = faPlus;
   faTrashAlt = faTrashAlt;
 
+  form:FormGroup;
+
   edit:boolean = false;
   subscription?: Subscription;
 
@@ -40,10 +43,19 @@ export class EducacionItemComponent implements OnInit {
 
   constructor(
     private datosPortfolio:PortfolioService,
+    private formBuilder:FormBuilder,
     private uiService: UiService
     ) {
       this.subscription = this.uiService.onSwitchE()
-      .subscribe(value=>this.edit = value)
+      .subscribe(value=>this.edit = value),
+      this.form=this.formBuilder.group(
+        {
+          institute:['',[Validators.required,Validators.minLength(3)]],
+          title:['',[Validators.required, Validators.minLength(3)]],
+          year_start:['',[Validators.required, Validators.minLength(3)]],
+          year_end:['',[Validators.required, Validators.minLength(3)]],
+          url_logo_education:['',[Validators.required, Validators.minLength(3)]],
+      });
   }
   
 
@@ -51,6 +63,26 @@ export class EducacionItemComponent implements OnInit {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.loginStatus=data.person.loginStatus;
     });
+  }
+
+  get Institute(){
+    return this.form.get('institute');
+  }
+
+  get Title(){
+    return this.form.get('title');
+  }
+
+  get YearStart(){
+    return this.form.get('year_start');
+  }
+
+  get YearEnd(){
+    return this.form.get('year_end');
+  }
+
+  get UrlLogoEducation(){
+    return this.form.get('url_logo_education');
   }
 
   onDelete(edu: Edu){
@@ -67,6 +99,21 @@ export class EducacionItemComponent implements OnInit {
   }
 
   onGuardarEdu(e:Edu){
+
+    if(this.institute.length === 0 ||
+      this.title.length === 0 ||
+      this.year_start.length === 0 || 
+      this.year_end.length === 0 || 
+      this.url_logo_education.length === 0 ){
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Debe completar todos los campos para guardar!',
+          showConfirmButton: false,
+          timer: 1400
+        });
+      return
+    }
     
     const edu = {
       personId: this.edu.personId,
