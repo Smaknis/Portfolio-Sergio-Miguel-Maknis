@@ -30,18 +30,23 @@
             [ngStyle]="{ color: 'black' }"
             (click)="onDeletePe(pers)"
           ></fa-icon>
-          <form class="add-form" *ngIf="showAgregarPe">
+          <form class="add-form" *ngIf="showAgregarPe" [formGroup]="form">
             <div class="form-control">
               <label class="col-form-label col-form-label-sm" for="inputSmall"
                 >Nombre:</label
               >
               <input
-                class="form-control form-control-sm"
+                class="form-control"
                 type="text"
                 name="name"
                 id="inputSmall"
                 placeholder="Agregue nombre"
                 [(ngModel)]="name"
+                formControlName="name"
+                [ngClass]="{
+                  'is-invalid': Name?.errors && Name?.touched,
+                  'is-valid': !Name?.errors && Name?.touched
+                }"
               />
             </div>
             <div class="form-control">
@@ -55,8 +60,14 @@
                 id="inputSmall"
                 placeholder="Agregue apellido"
                 [(ngModel)]="last_name"
+                formControlName="last_name"
+                [ngClass]="{
+                  'is-invalid': Last_name?.errors && Last_name?.touched,
+                  'is-valid': !Last_name?.errors && Last_name?.touched
+                }"
               />
             </div>
+            
             <div class="form-control">
               <label class="col-form-label col-form-label-sm" for="inputSmall"
                 >Posición:</label
@@ -68,6 +79,11 @@
                 id="inputSmall"
                 placeholder="Agregue posición"
                 [(ngModel)]="position"
+                formControlName="position"
+                [ngClass]="{
+                  'is-invalid': Position?.errors && Position?.touched,
+                  'is-valid': !Position?.errors && Position?.touched
+                }"
               />
             </div>
             <div class="form-control">
@@ -81,6 +97,11 @@
                 id="inputSmall"
                 placeholder="Agregue título"
                 [(ngModel)]="title"
+                formControlName="title"
+                [ngClass]="{
+                  'is-invalid': Title?.errors && Title?.touched,
+                  'is-valid': !Title?.errors && Title?.touched
+                }"
               />
             </div>
             <div class="form-control">
@@ -94,6 +115,11 @@
                 id="inputSmall"
                 placeholder="Agregue ubicación"
                 [(ngModel)]="location"
+                formControlName="location"
+                [ngClass]="{
+                  'is-invalid': Location?.errors && Location?.touched,
+                  'is-valid': !Location?.errors && Location?.touched
+                }"
               />
             </div>
             <div class="form-control">
@@ -107,6 +133,11 @@
                 id="inputSmall"
                 placeholder="Agregue imagen de fondo"
                 [(ngModel)]="back_image"
+                formControlName="back_image"
+                [ngClass]="{
+                  'is-invalid': Back_image?.errors && Back_image?.touched,
+                  'is-valid': !Back_image?.errors && Back_image?.touched
+                }"
               />
             </div>
             <div class="form-control">
@@ -120,6 +151,11 @@
                 id="inputSmall"
                 placeholder="Agregue imagen personal"
                 [(ngModel)]="url_image"
+                formControlName="url_image"
+                [ngClass]="{
+                  'is-invalid': Url_image?.errors && Url_image?.touched,
+                  'is-valid': Url_image?.errors && Url_image?.touched
+                }"
               />
             </div>
             <input

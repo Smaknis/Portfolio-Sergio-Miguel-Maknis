@@ -31,7 +31,7 @@
                 </p>
               </h6>
               <div class="form-group">
-                <form class="add-form" *ngIf="job.edit">
+                <form class="add-form" *ngIf="job.edit" [formGroup]="form">
                   <div class="form-control" contenteditable="true">
                     <label
                       class="col-form-label col-form-label-sm"
@@ -45,6 +45,11 @@
                       id="inputSmall"
                       placeholder="{{ this.job.position }}"
                       [(ngModel)]="position"
+                      formControlName="position"
+                      [ngClass]="{
+                        'is-invalid': Position?.errors && Position?.touched,
+                        'is-valid': !Position?.errors && Position?.touched
+                      }"
                     />
                   </div>
                   <div class="form-control">
@@ -60,6 +65,11 @@
                       id="inputSmall"
                       placeholder="{{ this.job.company }}"
                       [(ngModel)]="company"
+                      formControlName="company"
+                      [ngClass]="{
+                        'is-invalid': Company?.errors && Company?.touched,
+                        'is-valid': !Company?.errors && Company?.touched
+                      }"
                     />
                   </div>
                   <div class="form-control">
@@ -75,6 +85,12 @@
                       id="inputSmall"
                       placeholder="{{ this.job.journal_type }}"
                       [(ngModel)]="journal_type"
+                      formControlName="journal_type"
+                      [ngClass]="{
+                        'is-invalid':
+                          JournalType?.errors && JournalType?.touched,
+                        'is-valid': !JournalType?.errors && JournalType?.touched
+                      }"
                     />
                   </div>
                   <div class="form-control">
@@ -90,6 +106,11 @@
                       id="inputSmall"
                       placeholder="{{ this.job.date_start }}"
                       [(ngModel)]="date_start"
+                      formControlName="date_start"
+                      [ngClass]="{
+                        'is-invalid': DateStart?.errors && DateStart?.touched,
+                        'is-valid': !DateStart?.errors && DateStart?.touched
+                      }"
                     />
                   </div>
                   <div class="form-control">
@@ -105,6 +126,11 @@
                       id="inputSmall"
                       placeholder="{{ this.job.date_end }}"
                       [(ngModel)]="date_end"
+                      formControlName="date_end"
+                      [ngClass]="{
+                        'is-invalid': DateEnd?.errors && DateEnd?.touched,
+                        'is-valid': !DateEnd?.errors && DateEnd?.touched
+                      }"
                     />
                   </div>
                   <div class="form-control">
@@ -120,6 +146,12 @@
                       id="inputSmall"
                       [placeholder]="this.job.location_job"
                       [(ngModel)]="location_job"
+                      formControlName="location_job"
+                      [ngClass]="{
+                        'is-invalid':
+                          LocationJob?.errors && LocationJob?.touched,
+                        'is-valid': !LocationJob?.errors && LocationJob?.touched
+                      }"
                     />
                   </div>
                   <div class="form-control">
@@ -135,6 +167,11 @@
                       id="inputSmall"
                       placeholder="{{ this.job.url_logo_job }}"
                       [(ngModel)]="url_logo_job"
+                      formControlName="url_logo_job"
+                      [ngClass]="{
+                        'is-invalid': UrlLogoJob?.errors && UrlLogoJob?.touched,
+                        'is-valid': !UrlLogoJob?.errors && UrlLogoJob?.touched
+                      }"
                     />
                   </div>
                   <button class="btn btn-primary" (click)="onGuardarE(job)">

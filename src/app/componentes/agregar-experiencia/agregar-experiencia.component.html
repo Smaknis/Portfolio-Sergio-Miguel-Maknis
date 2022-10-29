@@ -1,5 +1,5 @@
 <div class="form-group">
-  <form class="add-form" (ngSubmit)="onSubmit()" *ngIf="showAgregarExp">
+  <form class="add-form" (ngSubmit)="onSubmit()" *ngIf="showAgregarExp" [formGroup]="form">
     <div class="form-control">
       <label class="col-form-label col-form-label-sm" for="inputSmall"
         >Posición:</label
@@ -11,6 +11,11 @@
         id="inputSmall"
         placeholder="Agregue puesto laboral"
         [(ngModel)]="position"
+        formControlName="position"
+        [ngClass]="{
+          'is-invalid': Position?.errors && Position?.touched,
+          'is-valid': !Position?.errors && Position?.touched
+        }"
       />
     </div>
     <div class="form-control">
@@ -24,6 +29,11 @@
         id="inputSmall"
         placeholder="Agregue empresa"
         [(ngModel)]="company"
+        formControlName="company"
+        [ngClass]="{
+          'is-invalid': Company?.errors && Company?.touched,
+          'is-valid': !Company?.errors && Company?.touched
+        }"
       />
     </div>
     <div class="form-control">
@@ -37,6 +47,11 @@
         id="inputSmall"
         placeholder="Agregue tipo de jornada (Full Time / Parcial / Freelancer)"
         [(ngModel)]="journal_type"
+        formControlName="journal_type"
+        [ngClass]="{
+          'is-invalid': JournalType?.errors && JournalType?.touched,
+          'is-valid': !JournalType?.errors && JournalType?.touched
+        }"
       />
     </div>
     <div class="form-control">
@@ -50,6 +65,11 @@
         id="inputSmall"
         placeholder="Agregue fecha de inicio, formato largo Mes Año"
         [(ngModel)]="date_start"
+        formControlName="date_start"
+        [ngClass]="{
+          'is-invalid': DateStart?.errors && DateStart?.touched,
+          'is-valid': !DateStart?.errors && DateStart?.touched
+        }"
       />
     </div>
     <div class="form-control">
@@ -63,6 +83,11 @@
         id="inputSmall"
         placeholder="Agregue fecha finalización, formato largo Mes Año"
         [(ngModel)]="date_end"
+        formControlName="date_end"
+        [ngClass]="{
+          'is-invalid': DateEnd?.errors && DateEnd?.touched,
+          'is-valid': !DateEnd?.errors && DateEnd?.touched
+        }"
       />
     </div>
     <div class="form-control">
@@ -76,6 +101,11 @@
         id="inputSmall"
         placeholder="Agregue la ubicación de la empresa"
         [(ngModel)]="location_job"
+        formControlName="location_job"
+        [ngClass]="{
+          'is-invalid': LocationJob?.errors && LocationJob?.touched,
+          'is-valid': !LocationJob?.errors && LocationJob?.touched
+        }"
       />
     </div>
     <div class="form-control">
@@ -89,6 +119,11 @@
         id="inputSmall"
         placeholder="Agregue URL del logo de la empresa"
         [(ngModel)]="url_logo_job"
+        formControlName="url_logo_job"
+        [ngClass]="{
+          'is-invalid': UrlLogoJob?.errors && UrlLogoJob?.touched,
+          'is-valid': !UrlLogoJob?.errors && UrlLogoJob?.touched
+        }"
       />
     </div>
     <input

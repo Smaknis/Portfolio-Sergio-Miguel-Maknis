@@ -94,7 +94,7 @@ export class LoginComponent implements OnInit {
     }
     //console.log(this.loginEmail);
     //console.log(this.loginPassword);
-    console.log(this.loginStatus);
+    //console.log(this.loginStatus);
     //this.onLogin.emit(login);
   }
 

@@ -5,6 +5,7 @@ import { Pers } from "../../Per";
 import { PERS } from "../../mock-Job";
 import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,6 +18,8 @@ export class EncabezadoComponent implements OnInit {
   @Input() pers: Pers = PERS[0]
 
   miPortfolio:any=0;
+
+  form:FormGroup;
   
   faEdit = faEdit;
   faPlus = faPlus;
@@ -53,10 +56,21 @@ export class EncabezadoComponent implements OnInit {
   constructor(
     private datosPortfolio:PortfolioService,
     private portfolioService: PortfolioService,
+    private formBuilder:FormBuilder,
     private uiService: UiService) {
       this.subscription = this.uiService.onSwitchPe()
-        .subscribe(value=>this.showAgregarPe = value)
-      }
+        .subscribe(value=>this.showAgregarPe = value),
+      this.form=this.formBuilder.group(
+        {
+          name:['',[Validators.required,Validators.minLength(3)]],
+          last_name:['',[Validators.required, Validators.minLength(3)]],
+          position:['',[Validators.required, Validators.minLength(3)]],
+          title:['',[Validators.required, Validators.minLength(3)]],
+          location:['',[Validators.required, Validators.minLength(3)]],
+          url_image:['',[Validators.required, Validators.minLength(3)]],
+          back_image:['',[Validators.required, Validators.minLength(3)]],
+      });
+    }
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
@@ -66,7 +80,52 @@ export class EncabezadoComponent implements OnInit {
     });
   }
 
+  get Name(){
+    return this.form.get('name');
+  }
+
+  get Last_name(){
+    return this.form.get('last_name');
+  }
+
+  get Position(){
+    return this.form.get('position');
+  }
+  
+  get Title(){
+    return this.form.get('title');
+  }
+
+  get Location(){
+    return this.form.get('location');
+  }
+
+  get Url_image(){
+    return this.form.get('url_image');
+  }
+
+  get Back_image(){
+    return this.form.get('back_image');
+  }
+  
   onAddPe(p:Pers){
+
+    if(this.name.length === 0 ||
+      this.last_name.length === 0 ||
+      this.back_image.length === 0 ||
+      this.url_image.length === 0 || 
+      this.position.length === 0 || 
+      this.title.length === 0 || 
+      this.location.length === 0 ){
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Debe completar todos los campos para guardar!',
+          showConfirmButton: false,
+          timer: 1200
+        });
+      return
+    }
     const addAcerca = {
       id: this.miPortfolio.person.id,
       about1: this.miPortfolio.person.about1,
@@ -86,7 +145,6 @@ export class EncabezadoComponent implements OnInit {
       loginStatus: this.loginStatus,
       birth_date: this.miPortfolio.person.birth_date, 
       edit: this.miPortfolio.person.edit, 
-      
     }
     this.portfolioService.editarPerson(addAcerca).subscribe();
     this.switchFormularioPe();
@@ -126,6 +184,23 @@ export class EncabezadoComponent implements OnInit {
   }
 
   editPe(pers:Pers){
+
+    if(this.name.length === 0 ||
+      this.last_name.length === 0 ||
+      this.back_image.length === 0 ||
+      this.url_image.length === 0 || 
+      this.position.length === 0 || 
+      this.title.length === 0 || 
+      this.location.length === 0 ){
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Debe completar todos los campos para guardar!',
+          showConfirmButton: false,
+          timer: 1200
+        });
+      return
+    }
     const addAcerca = {
       id: this.miPortfolio.person.id,
       about1: this.miPortfolio.person.about1,
