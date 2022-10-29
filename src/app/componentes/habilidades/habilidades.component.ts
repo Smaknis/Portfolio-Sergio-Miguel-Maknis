@@ -168,6 +168,7 @@ export class HabilidadesComponent implements OnInit {
     }
     
     this.agregarSoft(newSoft);
+    location.reload();
     return
   }
 
