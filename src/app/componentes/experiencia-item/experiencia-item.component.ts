@@ -5,6 +5,8 @@ import { JOBS } from '../../mock-Job'
 import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-experiencia-item',
@@ -17,6 +19,8 @@ export class ExperienciaItemComponent implements OnInit {
   @Output() onEditJob: EventEmitter<Job> = new EventEmitter();
   @Output() onEditarExperiencia: EventEmitter<Job> = new EventEmitter();
   @Output() cerrar = new EventEmitter();
+
+  form:FormGroup
 
   faEdit = faEdit;
   faPlus = faPlus;
@@ -40,16 +44,54 @@ export class ExperienciaItemComponent implements OnInit {
  
   constructor(
     private datosPortfolio:PortfolioService,
+    private formBuilder:FormBuilder,
     private uiService: UiService) {
       this.subscription = this.uiService.onSwitchE()
-      .subscribe(value=>this.edit = value)
+      .subscribe(value=>this.edit = value),
+      this.form=this.formBuilder.group(
+        {
+          position:['',[Validators.required,Validators.minLength(3)]],
+          company:['',[Validators.required, Validators.minLength(3)]],
+          journal_type:['',[Validators.required, Validators.minLength(3)]],
+          date_start:['',[Validators.required, Validators.minLength(3)]],
+          date_end:['',[Validators.required, Validators.minLength(3)]],
+          location_job:['',[Validators.required, Validators.minLength(3)]],
+          url_logo_job:['',[Validators.required, Validators.minLength(3)]],
+      });
   }
   
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.loginStatus=data.person.loginStatus;
     });
+  }
 
+  get Position(){
+    return this.form.get('position');
+  }
+
+  get Company(){
+    return this.form.get('company');
+  }
+
+  get JournalType(){
+    return this.form.get('journal_type');
+  }
+  
+  get DateStart(){
+    return this.form.get('date_start');
+  }
+
+  get DateEnd(){
+    return this.form.get('date_end');
+  }
+
+  get LocationJob(){
+    return this.form.get('location_job');
+  }
+
+  get UrlLogoJob(){
+    return this.form.get('url_logo_job');
   }
 
   onDelete(job: Job){
@@ -68,6 +110,23 @@ export class ExperienciaItemComponent implements OnInit {
   }
 
   onGuardarE(j:Job){
+
+    if(this.position.length === 0 ||
+      this.company.length === 0 ||
+      this.journal_type.length === 0 ||
+      this.date_start.length === 0 || 
+      this.date_end.length === 0 || 
+      this.location_job.length === 0 || 
+      this.url_logo_job.length === 0 ){
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Debe completar todos los campos para guardar!',
+          showConfirmButton: false,
+          timer: 1200
+        });
+      return
+    }
 
     const job = {
       personId: this.job.personId,

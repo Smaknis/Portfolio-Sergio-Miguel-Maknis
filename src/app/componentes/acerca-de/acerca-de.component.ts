@@ -3,6 +3,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { faPlus, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pers } from "../../Per";
 import { PERS } from "../../mock-Job";
 import Swal from 'sweetalert2';
@@ -17,8 +18,10 @@ export class AcercaDeComponent implements OnInit {
   @Output() onEditarPerson: EventEmitter<Pers> = new EventEmitter();
   @Output() onSwitchEdit: EventEmitter<any> = new EventEmitter();
   @Input() pers: Pers = PERS[0]
+
   miPortfolio:any=0;
-  
+  form:FormGroup;
+
   faEdit = faEdit;
   faPlus = faPlus;
   faTrashAlt = faTrashAlt;
@@ -52,9 +55,15 @@ export class AcercaDeComponent implements OnInit {
   constructor(
     private datosPortfolio:PortfolioService,
     private portfolioService: PortfolioService,
+    private formBuilder:FormBuilder,
     private uiService: UiService) {
       this.subscription = this.uiService.onSwitchAc()
-        .subscribe(value=>this.showAgregarAc = value)
+        .subscribe(value=>this.showAgregarAc = value),
+      this.form=this.formBuilder.group(
+        {
+          about1:['',[Validators.required,Validators.minLength(3)]],
+          about2:['',[Validators.required, Validators.minLength(3)]],
+        });
   }
 
   ngOnInit(): void {
@@ -64,6 +73,14 @@ export class AcercaDeComponent implements OnInit {
       this.loginStatus=data.person.loginStatus;
     });
 
+  }
+
+  get About1(){
+    return this.form.get('about1');
+  }
+
+  get About2(){
+    return this.form.get('about2');
   }
 
   switchFormularioAc(){
@@ -85,6 +102,20 @@ export class AcercaDeComponent implements OnInit {
   }
 
   editAc(pers:Pers){
+
+    if(this.about1.length === 0 ||
+      this.about2.length === 0
+      ){
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Debe completar todos los campos para guardar!',
+          showConfirmButton: false,
+          timer: 1200
+        });
+      return
+    }
+
     const addAcerca = {
       id: this.miPortfolio.person.id,
       about1: this.about1,
@@ -149,6 +180,19 @@ export class AcercaDeComponent implements OnInit {
 
   
   onAddAc(p:Pers){
+
+    if(this.about1.length === 0 ||
+      this.about2.length === 0
+      ){
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Debe completar todos los campos para guardar!',
+          showConfirmButton: false,
+          timer: 1200
+        });
+      return
+    }
     const addAcerca = {
       id: this.miPortfolio.person.id,
       about1: this.about1,

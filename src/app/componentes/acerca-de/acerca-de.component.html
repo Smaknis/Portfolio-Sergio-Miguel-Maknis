@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" >
   <div class="page-header" id="banner">
     <div class="row">
-      <div class="col-lg-8 col-md-7 col-sm-6">
+      <div class="col-lg-8 col-md-7 col-sm-6 ">
         <h3>
           Acerca de
           <fa-icon
@@ -25,7 +25,7 @@
             [ngStyle]="{ color: 'black' }"
             (click)="onDeleteAc(pers)"
           ></fa-icon>
-          <form class="add-form" *ngIf="showAgregarAc">
+          <form class="add-form" *ngIf="showAgregarAc" [formGroup]="form">
             <div class="form-control">
               <label class="col-form-label col-form-label-sm" for="inputSmall"
                 >Título 1:</label
@@ -37,6 +37,11 @@
                 id="inputSmall"
                 placeholder="Agregue Título"
                 [(ngModel)]="about1"
+                formControlName="about1"
+                [ngClass]="{
+                  'is-invalid': About1?.errors && About1?.touched,
+                  'is-valid': !About1?.errors && About1?.touched
+                }"
               />
             </div>
             <div class="form-control">
@@ -50,6 +55,11 @@
                 id="inputSmall"
                 placeholder="Agregue titulo"
                 [(ngModel)]="about2"
+                formControlName="about2"
+                [ngClass]="{
+                  'is-invalid': About2?.errors && About2?.touched,
+                  'is-valid': !About2?.errors && About2?.touched
+                }"
               />
             </div>
             <input
