@@ -27,7 +27,7 @@
               </p>
             </div>
             <div class="form-group">
-              <form class="add-form" *ngIf="proy.edit">
+              <form class="add-form" *ngIf="proy.edit" [formGroup]="form">
                 <div class="form-control" contenteditable="true">
                   <label
                     class="col-form-label col-form-label-sm"
@@ -41,6 +41,11 @@
                     id="inputSmall"
                     placeholder="{{ this.proy.name }}"
                     [(ngModel)]="name"
+                    formControlName="name"
+                    [ngClass]="{
+                      'is-invalid': Name?.errors && Name?.touched,
+                      'is-valid': !Name?.errors && Name?.touched
+                    }"
                   />
                 </div>
                 <div class="form-control">
@@ -56,6 +61,11 @@
                     id="inputSmall"
                     placeholder="{{ this.proy.description }}"
                     [(ngModel)]="description"
+                    formControlName="description"
+                    [ngClass]="{
+                      'is-invalid': Description?.errors && Description?.touched,
+                      'is-valid': !Description?.errors && Description?.touched
+                    }"
                   />
                 </div>
                 <button class="btn btn-primary" (click)="onGuardarEditPr(proy)">

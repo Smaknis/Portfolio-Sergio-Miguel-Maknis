@@ -31,7 +31,7 @@
                 ></div>
               </div>
               <div class="form-group">
-                <form class="add-form" *ngIf="soft.edit">
+                <form class="add-form" *ngIf="soft.edit" [formGroup]="form">
                   <div class="form-control" contenteditable="true">
                     <label
                       class="col-form-label col-form-label-sm"
@@ -45,6 +45,11 @@
                       id="inputSmall"
                       placeholder="{{ this.soft.title }}"
                       [(ngModel)]="title"
+                      formControlName="title"
+                      [ngClass]="{
+                        'is-invalid': Title?.errors && Title?.touched,
+                        'is-valid': !Title?.errors && Title?.touched
+                      }"
                     />
                   </div>
                   <div class="form-control">
@@ -60,6 +65,11 @@
                       id="inputSmall"
                       placeholder="{{ this.soft.score }}"
                       [(ngModel)]="score"
+                      formControlName="score"
+                      [ngClass]="{
+                        'is-invalid': Score?.errors && Score?.touched,
+                        'is-valid': !Score?.errors && Score?.touched
+                      }"
                     />
                   </div>
                   <button class="btn btn-primary" (click)="onGuardarSoft(soft)">

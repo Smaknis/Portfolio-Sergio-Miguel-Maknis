@@ -15,7 +15,7 @@
               ></fa-icon>
             </h4>
           </div>
-          <form class="add-form" *ngIf="showAgregarPr">
+          <form class="add-form" *ngIf="showAgregarPr" [formGroup]="form">
             <div class="form-control">
               <label class="col-form-label col-form-label-sm" for="inputSmall"
                 >Nombre del proyecto:</label
@@ -27,6 +27,11 @@
                 id="inputSmall"
                 placeholder="Agregue nombre del proyecto"
                 [(ngModel)]="name"
+                formControlName="name"
+                [ngClass]="{
+                  'is-invalid': Name?.errors && Name?.touched,
+                  'is-valid': !Name?.errors && Name?.touched
+                }"
               />
             </div>
             <div class="form-control">
@@ -40,6 +45,11 @@
                 id="inputSmall"
                 placeholder="Agregue detalle del proyecto"
                 [(ngModel)]="description"
+                formControlName="description"
+                [ngClass]="{
+                  'is-invalid': Description?.errors && Description?.touched,
+                  'is-valid': !Description?.errors && Description?.touched
+                }"
               />
             </div>
 
@@ -75,7 +85,10 @@
   <footer id="footer">
     <div class="row">
       <div class="col-lg-12">
-        <p>Hecho por Sergio Miguel Maknis<br /><br />Front End: Angular, Node, Boostrap, SweetAlert2 <br/>Back End: Spring Boot, Java, SQL<br />2022</p>
+        <p>
+          Hecho por Sergio Miguel Maknis<br /><br />Front End: Angular, Node,
+          Boostrap, SweetAlert2 <br />Back End: Spring Boot, Java, SQL<br />2022
+        </p>
       </div>
     </div>
   </footer>

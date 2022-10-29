@@ -5,6 +5,7 @@ import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
 import { Proy } from '../../Proy';
 import { PROY } from '../../mock-Job';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -23,6 +24,8 @@ export class PiePaginaComponent implements OnInit {
   faPlus = faPlus;
   faTrashAlt = faTrashAlt;
 
+  form:FormGroup;
+
   subscription?: Subscription;
   edit: boolean = false;
 
@@ -38,10 +41,16 @@ export class PiePaginaComponent implements OnInit {
  
   constructor(
     private datosPortfolio:PortfolioService,
+    private formBuilder:FormBuilder,
     private portfolioService: PortfolioService,
     private uiService: UiService) {
       this.subscription = this.uiService.onSwitchPr()
-        .subscribe(value=>this.showAgregarPr = value)
+        .subscribe(value=>this.showAgregarPr = value),
+      this.form=this.formBuilder.group(
+        {
+          name:['',[Validators.required,Validators.minLength(3)]],
+          description:['',[Validators.required,Validators.minLength(3)]]
+        });
   }
     
 
@@ -53,12 +62,20 @@ export class PiePaginaComponent implements OnInit {
     });
   }
 
+  get Name(){
+    return this.form.get('name');
+  }
+
+  get Description(){
+    return this.form.get('description');
+  }
+
   switchFormularioPr(proy:Proy){
     this.uiService.switchFormularioProy(proy)
   }
 
   onAddPr(proy:Proy){
-    if(this.name.length === 0){
+    if(this.name.length === 0 ){
       Swal.fire('Por favor agregue nombre del Proyecto')
       return
     }

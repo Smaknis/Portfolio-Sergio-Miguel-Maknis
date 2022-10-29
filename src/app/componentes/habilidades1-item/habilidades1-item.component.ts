@@ -5,6 +5,8 @@ import { faEdit, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-habilidades1-item',
@@ -23,6 +25,8 @@ export class Habilidades1ItemComponent implements OnInit {
   faPlus = faPlus;
   faTrashAlt = faTrashAlt;
 
+  form:FormGroup;
+
   edit:boolean = false;
   subscription?: Subscription;
 
@@ -33,16 +37,30 @@ export class Habilidades1ItemComponent implements OnInit {
 
   constructor(
     private datosPortfolio:PortfolioService,
+    private formBuilder:FormBuilder,
     private uiService: UiService
     ) {
       this.subscription = this.uiService.onSwitchE()
-      .subscribe(value=>this.edit = value)
+      .subscribe(value=>this.edit = value),
+      this.form=this.formBuilder.group(
+        {
+          title:['',[Validators.required,Validators.minLength(3)]],
+          score:['',[Validators.required, Validators.minLength(1)]],
+        });
   }
   
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.loginStatus=data.person.loginStatus;
     });
+  }
+
+  get Title(){
+    return this.form.get('title');
+  }
+
+  get Score(){
+    return this.form.get('score');
   }
 
   onDeleteS(soft:Soft){
@@ -56,6 +74,16 @@ export class Habilidades1ItemComponent implements OnInit {
   }
 
   onGuardarSoft(soft:Soft){
+    if(this.title.length === 0 || this.score == 0){
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Debe completar todos los campos para guardar!',
+        showConfirmButton: false,
+        timer: 1400
+      });
+      return
+    }
     const so = {
       personId: this.soft.personId,
       title: this.title,
