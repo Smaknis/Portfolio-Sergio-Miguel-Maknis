@@ -19,7 +19,7 @@ const httpOptions = {
 })
 export class PortfolioService {
 
-  private apiUrl = 'http://localhost:8080'
+  private apiUrl = 'https://portfolio-sergiomaknis.herokuapp.com/';
     
   constructor(private http:HttpClient) { }
   
