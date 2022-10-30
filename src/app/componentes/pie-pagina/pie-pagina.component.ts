@@ -90,7 +90,13 @@ export class PiePaginaComponent implements OnInit {
       edit: this.edit,
     }
     this.agregarPr(newProy);
-    location.reload()
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Presione F5 para actualizar los cambios!',
+      showConfirmButton: false,
+      timer: 1000
+    });
     return
   }
 

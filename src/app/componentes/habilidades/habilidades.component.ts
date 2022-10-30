@@ -96,7 +96,13 @@ export class HabilidadesComponent implements OnInit {
       edit: this.edit,
     }
     this.agregarHard(newHard);
-    location.reload();
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Presione F5 para actualizar los cambios!',
+      showConfirmButton: false,
+      timer: 1000
+    });
     return
   }
 
@@ -168,7 +174,13 @@ export class HabilidadesComponent implements OnInit {
     }
     
     this.agregarSoft(newSoft);
-    location.reload();
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Presione F5 para actualizar los cambios!',
+      showConfirmButton: false,
+      timer: 1000
+    });
     return
   }
 
