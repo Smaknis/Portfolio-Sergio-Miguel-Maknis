@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.form=this.formBuilder.group(
       {
         email:['',[Validators.required,Validators.email]],
-        password:['',[Validators.required, Validators.minLength(8)]],
+        password:['',[Validators.required, Validators.minLength(4)]],
         deviceInfo:this.formBuilder.group({
           deviceId: ["17867868768"],
           deviceType: ["DEVICE_TYPE_ANDROID"],
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Los datos son incorrectos, contacte al administrador para que se los proporcione eintente nuevamente',
+        text: 'Los datos son incorrectos, contacte al administrador para que se los proporcione y reintente nuevamente',
       })}
     if(this.email===this.loginEmail && this.password===this.loginPassword){
       this.loginStatus=true;
@@ -83,8 +83,8 @@ export class LoginComponent implements OnInit {
         position: this.miPortfolio.position,
         title: this.miPortfolio.title,
         url_image: this.miPortfolio.url_image,
-        email: this.miPortfolio.email,
-        password: this.miPortfolio.password,
+        email: this.email,
+        password: this.password,
         birth_date: this.miPortfolio.birth_date, 
         edit: this.miPortfolio.edit, 
         loginStatus: this.loginStatus
