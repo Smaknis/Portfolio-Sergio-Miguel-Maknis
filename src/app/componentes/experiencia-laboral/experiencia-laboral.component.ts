@@ -3,6 +3,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { Job } from '../../Job';
 import { UiService } from 'src/app/servicios/ui.service';
 import { Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-experiencia-laboral',
@@ -52,7 +53,14 @@ export class ExperienciaLaboralComponent implements OnInit {
     this.datosPortfolio.agregarJob(job).subscribe((job)=>(
     this.jobsList.push(job)
     ));
-    location.reload()
+    //location.reload()
+    Swal.fire({
+      position: 'center',
+      icon: 'warning',
+      title: 'Presione F5 para actualizar los cambios!',
+      showConfirmButton: false,
+      timer: 1200
+    });
   }
 
   editJob(job:Job){
